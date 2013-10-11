@@ -1,0 +1,30 @@
+<h1>Menus</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+	  <th>Category</th>
+	  <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <td><%= menu.id %></td>
+        <td><%= menu.price %></td>
+        <td><%= link_to menu.name, admin_menu_path(department) %></td>
+		<td><%= menu.category %></td>
+        <td><%= menu.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_admin_menu_path(menu), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', admin_menu_path(menu), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_admin_menu_path, :class => 'btn btn-primary' %>

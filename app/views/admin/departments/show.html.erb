@@ -1,0 +1,13 @@
+<h1>Department</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @department.name %>
+</p>
+
+
+<div class="form-actions">
+  <%= link_to 'Back', admin_departments_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_admin_department_path(@department), :class => 'btn' %>
+  <%= link_to 'Delete', admin_department_path(@department), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

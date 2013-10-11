@@ -1,0 +1,16 @@
+
+<%= simple_form_for [:admin,@menu], :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Menu</legend>
+
+    <%= f.input :name %>
+	<%= f.input :price %>
+    <%= f.input :category %>
+	<div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', admin_menus_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
+
+
