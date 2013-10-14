@@ -3,14 +3,20 @@ class Admin::MenusController < AdminController
   
   # GET /menus
   # GET /menus.json
-  def index
-    @menus = Menu.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @menus }
+  
+  def index
+    if params[:term].present?
+      @menus = Menu.order(:name).where("name like ?", "%#{params[:term]}%")
+    else
+      @menus = Menu.includes(:category)
     end
-  end
+    
+     respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @menus.map(&:name) }
+      end
+    end
 
   # GET /menus/1
   # GET /menus/1.json

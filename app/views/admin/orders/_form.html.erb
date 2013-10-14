@@ -1,11 +1,12 @@
-
 <%= simple_form_for [:admin,@order], :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Order</legend>
 
-    <%= current_user.name %>
-    <%= f.input :menu_id %>
-    <%= f.input :region_id %>
+
+	<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %> 
+    <p>Employee: <b><%= current_user.name %></b></p>
+	<%= f.input :menu_id, :label => 'Menu', :as => :select, :collection => 		Menu.all.map{|m| ["#{m.name}", "#{m.category_name}", m.id]}, :include_blank => false  %>
+	<%= f.input :region_id, :label => 'Region', :as => :select, :collection => 		Region.all.map{|r| ["#{r.name}", r.id]}, :include_blank => false %>
 	<%= f.input :date %>
 
     <div class="form-actions">
@@ -14,3 +15,5 @@
     </div>
   </fieldset>
 <% end %>
+
+

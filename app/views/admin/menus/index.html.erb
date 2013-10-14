@@ -14,9 +14,9 @@
     <% @menus.each do |menu| %>
       <tr>
         <td><%= menu.id %></td>
-        <td><%= menu.price %></td>
         <td><%= link_to menu.name, admin_menu_path(menu) %></td>
-		<td><%= menu.category %></td>
+		<td><%= menu.price %></td>
+		<td><%= menu.category_name %></td>
         <td><%= menu.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_admin_menu_path(menu), :class => 'btn btn-mini' %>

@@ -5,7 +5,8 @@
 
     <%= f.input :name %>
 	<%= f.input :price %>
-	<%= f.input :category, :collection => ['Bento', 'Curry', 'Donburi'], :selected => params[1]  %>
+
+	<%= f.input :category_id, :label => 'Category', :as => :select, :collection => 		Category.all.map{|c| ["#{c.name}", c.id]}, :include_blank => false  %>
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', admin_menus_path, :class => 'btn' %>

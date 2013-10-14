@@ -5,7 +5,7 @@ class Admin::OrdersController < AdminController
   # GET /orders.json
   def index
     @orders = Order.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @orders }
@@ -61,6 +61,9 @@ class Admin::OrdersController < AdminController
     @order = Order.find(params[:id])
 
     respond_to do |format|
+      if Order.Date < Date.now
+         flash.now.alert = "Invalid email or password"
+       end
       if @order.update_attributes(params[:order])
         format.html { redirect_to [:admin,@order], notice: 'Order was successfully updated.' }
         format.json { head :no_content }

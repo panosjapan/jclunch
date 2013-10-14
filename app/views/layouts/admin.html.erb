@@ -70,7 +70,8 @@
 	<% if current_user %>
 	<div class="container">
 		<div class="row" style="margin:20px 0;">
-				&copy; <%= Time.now.year %> Japan Centre Group Ltd.
+				&copy; <%=  d=Time.now+14.hour 
+				d.to_date  %> Japan Centre Group Ltd.
 		</div>
 	</div>
 	<% end %>
