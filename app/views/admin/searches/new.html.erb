@@ -1,0 +1,14 @@
+<h1>Advanced Search</h1>
+
+<%= form_for [:admin,@search] do |f| %>
+  <div class="field">
+    <%= f.label :region_id %><br />
+    <%= f.text_field :region_id %>
+  </div>
+  <div class="field">
+    <%= f.label :min_date, "Date Range" %><br />
+    <%= f.text_field :min_date, size: 10 %> -
+    <%= f.text_field :max_date, size: 10 %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>

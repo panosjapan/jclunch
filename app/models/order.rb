@@ -52,7 +52,7 @@ class Order < ActiveRecord::Base
   def user_name=(name)
     self.user = Region.find_or_create_by_name(name) if name.present?
   end
-  
+   
   def menu_name
     menu.try(:name)
   end

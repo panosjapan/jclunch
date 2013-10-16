@@ -88,4 +88,14 @@ class Admin::MenusController < AdminController
       format.json { head :no_content }
     end
   end
+  
+  def toggle
+    @menu = Menu.find(params[:id])
+    if @menu.active?
+      @menu.hide!
+    else
+      @menu.activate!
+    end
+    redirect_to :back
+  end
 end

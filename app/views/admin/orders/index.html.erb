@@ -1,12 +1,26 @@
-<h1>Orders</h1>
+
+<h3>Searching Orders by</h>
+
+<%= search_form_for [:admin,@search] do |f| %>
+
+      <%= f.text_field :region_name_cont, :placeholder => 'Type Region...'  %><br/>
+      <%= f.date_select :date_cont  %>
+
+<div class="actions"><%= f.submit "Search", :class => 'btn btn-primary' %></div>
+    <% end %><br/><br/>
+<h3>Results</h3>
+
+<%= paginate @orders %>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Employee</th>
-      <th>Menu</th>
-      <th>Region</th>
-      <th>Date</th>
+      <th><%= sort_link @search, :name, "Employee" %></th>
+      <th><%= sort_link @search, :menu_name, "Menu" %></th>
+	  <th><%= sort_link @search, :user_department_name, "Department" %></th>
+      <th><%= sort_link @search, :region_name, "Region" %></th>
+      <th><%= sort_link @search, :date, "Date" %></th>
+	  <th>Created at</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -16,15 +30,19 @@
         <td><%= order.id %></td>
 		<td><%= order.user_name %></td>
         <td><%= order.menu_name %></td>
+        <td><%= order.user.try(:department_name) %></td>
         <td><%= order.region_name %></td>
         <td><%= order.date %></td>
+        <td><%= order.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_admin_order_path(order), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', admin_order_path(order), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Destroy', admin_order_path(order), :method => :delete %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= paginate @orders %>
+
 
 <%= link_to 'New', new_admin_order_path, :class => 'btn btn-primary' %>

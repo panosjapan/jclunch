@@ -21,7 +21,7 @@ class Admin::SessionsController < AdminController
       else
         cookies[:auth_token] = user.auth_token
       end      
-      redirect_to admin_departments_url, notice: "Logged in!"
+      redirect_to admin_orders_url, notice: "Logged in!"
     else
       flash.now.alert = "Email or password is invalid"
       render "new"

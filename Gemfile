@@ -11,6 +11,10 @@ group :production do
   gem 'thin'
 end
 
+gem 'ransack'
+gem 'kaminari'
+gem 'jquery-ui-rails'
+
 gem "heroku"
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,14 +28,21 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
+  gem 'state_machine'
 
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'populator'
 
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'random_data'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use ClearDB(HEROKU ADD-ON)
+gem 'activemerchant', :require => 'active_merchant'
+gem 'rails_12factor', group: :production
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

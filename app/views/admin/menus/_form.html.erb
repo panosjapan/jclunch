@@ -4,7 +4,7 @@
     <legend><%= controller.action_name.capitalize %> Menu</legend>
 
     <%= f.input :name %>
-	<%= f.input :price %>
+	<%= f.input :price, :label => 'Price (£)' %>
 
 	<%= f.input :category_id, :label => 'Category', :as => :select, :collection => 		Category.all.map{|c| ["#{c.name}", c.id]}, :include_blank => false  %>
     <div class="form-actions">

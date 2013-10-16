@@ -2,8 +2,8 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.all
-
+    @menus = Menu.order('category_id')
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @menus }

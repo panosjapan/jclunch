@@ -1,0 +1,22 @@
+<h2>Order</h2>
+
+<p>
+  <b>Employee:</b>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <b>Menu:</b>
+  <%= @order.menu_name %>
+</p>
+
+<p>
+  <b>Region:</b>
+  <%= @order.region_name %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', admin_orders_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_admin_order_path(@order), :class => 'btn' %>
+  <%= link_to 'Delete', admin_order_path(@order), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

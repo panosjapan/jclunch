@@ -4,12 +4,13 @@ class Admin::OrdersController < AdminController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
-    
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @orders }
-    end
+    @search = Order.search(params[:q])
+      @orders = @search.result.page(params[:page]).per(5)
+      
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @order }
+      end  
   end
 
   # GET /orders/1
@@ -57,15 +58,14 @@ class Admin::OrdersController < AdminController
 
   # PUT /orders/1
   # PUT /orders/1.json
+
+  
   def update
     @order = Order.find(params[:id])
 
     respond_to do |format|
-      if Order.Date < Date.now
-         flash.now.alert = "Invalid email or password"
-       end
       if @order.update_attributes(params[:order])
-        format.html { redirect_to [:admin,@order], notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

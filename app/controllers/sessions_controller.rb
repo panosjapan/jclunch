@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end      
-      redirect_to departments_url, notice: "Logged in!"
+      redirect_to menus_url, notice: "Logged in!"
     else
       flash.now.alert = "Email or password is invalid"
       render "new"

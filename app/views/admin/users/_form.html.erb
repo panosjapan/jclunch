@@ -2,9 +2,10 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> User</legend>
 
-    <%= f.input :name %>
+    <%= f.input :name, :label => 'Full Name' %>
 	<%= f.input :email %>
 	<%= f.input :password %>
+		<%= f.input :department_id, :label => 'Department', :as => :select, :collection => 		Department.all.map{|d| ["#{d.name}", d.id]}, :include_blank => false  %>
 	<%= f.input :admin, :collection => ['No', 'Yes'], :selected => params[1]  %>
 	
     <div class="form-actions">

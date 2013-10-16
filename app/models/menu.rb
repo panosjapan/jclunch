@@ -7,6 +7,8 @@ class Menu < ActiveRecord::Base
   validates_uniqueness_of :name
 	validates_presence_of :name, :price, :category  
   
+  scope :active,  where(state: 'active')
+  scope :hidden,  where(state: 'hidden')
   
   def category_name
     category.try(:name)
@@ -18,6 +20,16 @@ class Menu < ActiveRecord::Base
   
   def to_param
      "#{id}-#{name.gsub(/\s/,'-')}".parameterize
+   end
+   
+   state_machine :initial => :active do
+     event :activate do
+       transition :hidden => :active
+     end
+
+     event :hide do
+       transition :active => :hidden
+     end
    end
 
 end

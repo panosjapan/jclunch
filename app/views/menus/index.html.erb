@@ -1,25 +1,20 @@
-<h1>Listing menus</h1>
+<h1>Menus</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price (£)</th>
+	  <th>Category</th>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @menus.each do |menu| %>
-  <tr>
-    <td><%= menu.name %></td>
-    <td><%= menu.price %></td>
-    <td><%= link_to 'Show', menu %></td>
-    <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-    <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <td><%= menu.name %></td>
+		<td><%= menu.price %></td>
+		<td><%= menu.category_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Menu', new_menu_path %>

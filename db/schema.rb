@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131011124150) do
+ActiveRecord::Schema.define(:version => 20131016144604) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -34,10 +34,11 @@ ActiveRecord::Schema.define(:version => 20131011124150) do
 
   create_table "menus", :force => true do |t|
     t.string   "name"
-    t.integer  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "category"
+    t.decimal  "price",       :precision => 6, :scale => 2
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.integer  "category_id"
+    t.string   "state"
   end
 
   create_table "orders", :force => true do |t|
@@ -61,6 +62,14 @@ ActiveRecord::Schema.define(:version => 20131011124150) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "searches", :force => true do |t|
+    t.integer  "region_id"
+    t.date     "min_date"
+    t.date     "max_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -71,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20131011124150) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "admin"
+    t.integer  "department_id"
   end
 
 end

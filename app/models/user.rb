@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   
-  attr_accessible :name, :email, :password, :password_confirmation, :admin
+  attr_accessible :name, :email, :password, :password_confirmation, :admin, :department, :department_id, :department_name
   
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
   validates_length_of :name, :within => 3..40
@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   before_create { generate_token(:auth_token) }
   
+  belongs_to :department
   has_many :assignments
   has_many :roles, :through => :assignments
   
@@ -27,6 +28,14 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+  
+  def department_name
+    department.try(:name)
+  end
+
+  def department_name=(name)
+    self.department = Department.find_or_create_by_name(name) if name.present?
   end
   
   def role?(role)

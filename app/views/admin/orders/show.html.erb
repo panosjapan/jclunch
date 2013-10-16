@@ -1,20 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h2>Order</h2>
 
 <p>
-  <b>User:</b>
-  <%= @order.user_id %>
+  <b>Employee:</b>
+  <%= @order.user_name %>
 </p>
 
 <p>
   <b>Menu:</b>
-  <%= @order.menu_id %>
+  <%= @order.menu_name %>
 </p>
 
 <p>
   <b>Region:</b>
-  <%= @order.region_id %>
+  <%= @order.region_name %>
 </p>
 
+<p>
+  <b>Date:</b>
+  <%= @order.date %>
+</p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="form-actions">
+  <%= link_to 'Back', admin_orders_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_admin_order_path(@order), :class => 'btn' %>
+  <%= link_to 'Delete', admin_order_path(@order), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

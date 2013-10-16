@@ -1,7 +1,7 @@
 LunchOrder::Application.routes.draw do
 
   get "password_resets/new"
-
+  
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
@@ -17,7 +17,7 @@ LunchOrder::Application.routes.draw do
   
   #get 'admin' => 'admin#index'
   
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  #get 'logout', to: 'sessions#destroy', as: 'logout'
 
 
   
@@ -28,11 +28,16 @@ LunchOrder::Application.routes.draw do
     get "login" => "sessions#new", :as => "login"
     resources :categories
     resources :users
-    resources :menus
+    resources :menus do
+      member do
+        put 'toggle'
+      end
+    end
     resources :regions
     resources :departments
     resources :orders
     resources :sessions
+    resources :searches
   end 
   
 end
