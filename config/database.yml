@@ -15,6 +15,6 @@ development:
   database: lunch_order_development
   pool: 5
   username: root
-  password: root
+  password: 
   socket: /tmp/mysql.sock
   
