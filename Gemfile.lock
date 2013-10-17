@@ -59,7 +59,7 @@ GEM
     eventmachine (1.0.3)
     excon (0.25.3)
     execjs (2.0.2)
-    heroku (3.0.0)
+    heroku (2.35.0)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
       netrc (~> 0.7.7)
@@ -174,7 +174,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-wysihtml5-rails (~> 0.2.12)
   coffee-rails (~> 3.2.1)
-  heroku
+  heroku (~> 2.35.0)
   jquery-rails
   jquery-ui-rails
   kaminari
