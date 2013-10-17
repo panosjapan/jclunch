@@ -16,11 +16,11 @@
         <td><%= region.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_admin_region_path(region), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', admin_region_path(region), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Destroy', admin_region_path(region), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_admin_region_path, :class => 'btn btn-primary' %>
+<%= link_to 'New', new_admin_region_path, :style => 'color: white', :class => 'btn btn-primary' %>

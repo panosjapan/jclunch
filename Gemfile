@@ -33,6 +33,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'populator'
+gem 'money'
 
 gem 'jquery-rails'
 gem 'simple_form'

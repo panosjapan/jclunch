@@ -2,7 +2,7 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.order('category_id')
+    @menus = Menu.order('category_id').scoped.select { |m| m.state == "active" }
     
     respond_to do |format|
       format.html # index.html.erb

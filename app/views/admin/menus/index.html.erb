@@ -4,7 +4,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <th>Price (£)</th>
+      <th>Price</th>
 	  <th>Category</th>
 	  <th>Created at</th>
       <th>Actions</th>
@@ -15,18 +15,19 @@
       <tr id="menus_<%= menu.id %>" class="<%= 'grey' if menu.hidden? %>">
         <td><%= menu.id %></td>
         <td><%= menu.name %></td>
-		<td><%= menu.price %></td>
+		<td><%= number_to_currency(menu.price, :unit => "€") %></td>
 		<td><%= menu.category_name %></td>
         <td><%= menu.created_at %></td>
         <td>
-	<%= link_to t('helpers.links.toggle'), toggle_admin_menu_path(menu),method: :put,class: 'btn btn-mini btn-success' %>
-          <%= link_to 'Edit', edit_admin_menu_path(menu), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', admin_menu_path(menu), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+	<%= link_to t('helpers.links.toggle'), toggle_admin_menu_path(menu), method: :put, :style => 'color: white', class: 'btn btn-mini btn-success' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+ edit_admin_menu_path(menu), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")), admin_menu_path(menu), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New', new_admin_menu_path, :class => 'btn btn-primary' %>
+	<b>Total Menus	<%= Menu.count %></b><br/><br/>
+<%= link_to 'New', new_admin_menu_path, :style => 'color: white', :class => 'btn btn-primary' %>
 

@@ -178,6 +178,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   kaminari
+  money
   mysql2
   populator
   rails (= 3.2.6)

@@ -16,11 +16,11 @@
         <td><%= department.created_at %></td>
         <td>
           <%= link_to 'Edit', edit_admin_department_path(department), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', admin_department_path(department), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Destroy', admin_department_path(department), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_admin_department_path, :class => 'btn btn-primary' %>
+<%= link_to 'New', new_admin_department_path, :style => 'color: white', :class => 'btn btn-primary' %>
