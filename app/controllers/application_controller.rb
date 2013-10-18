@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :authorize, :authorize_admin
+  before_filter :authorize#, :authorize_admin
 
   protect_from_forgery
   
@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
   	end
       
     def authorize_admin
-  	  redirect_to admin_root_url, alert: "Not authorized" if current_user.nil? 
+      
+  	  redirect_to admin_root_url, alert: "Not authorized" if current_user.nil? || current_user.admin == "No"
   	end
   	    
 end

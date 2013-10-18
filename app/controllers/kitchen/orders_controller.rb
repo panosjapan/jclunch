@@ -1,4 +1,4 @@
-class Admin::OrdersController < AdminController
+class Kitchen::OrdersController < KitchenController
   #skip_before_filter :authorize
   
   # GET /orders
@@ -10,32 +10,30 @@ class Admin::OrdersController < AdminController
       respond_to do |format|
           format.html
           format.pdf do
-            pdf = OrderPdf.new(@search.date_cont, view_context)
+            pdf = OrderPdf.new(@search.result, view_context)
                  send_data pdf.render, filename: "orders.pdf",
                                        type: "application/pdf",
                                        disposition: "inline"
         end
       end
   end
-  
 
   # GET /orders/1
   # GET /orders/1.json
   def show
-     @search = Order.search(params[:q])
-       @orders = @search.result
-       
-        respond_to do |format|
-            format.html
-            format.pdf do
-              pdf = OrderPdf.new(@orders, view_context)
-                   send_data pdf.render, filename: "orders.pdf",
-                                         type: "application/pdf",
-                                         disposition: "inline"
-          end
+    @order = Order.find(params[:id])
+
+    respond_to do |format|
+        format.html
+        format.pdf do
+          pdf = OrderPdf.new(@order, view_context)
+               send_data pdf.render, filename: "order_#{@order.date}.pdf",
+                                     type: "application/pdf",
+                                     disposition: "inline"
         end
+      end
     end
-       
+
   # GET /orders/new
   # GET /orders/new.json
   def new

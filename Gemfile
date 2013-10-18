@@ -33,7 +33,7 @@ group :assets do
 end
 gem 'populator'
 gem 'money'
-
+gem 'prawn'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'random_data'
@@ -56,3 +56,4 @@ gem 'rails_12factor', group: :production
 
 # To use debugger
 # gem 'debugger'
+gem 'debugger', group: [:development, :test]

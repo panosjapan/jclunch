@@ -1,11 +1,7 @@
-<% if current_user %>
-	<script type="text/javascript">
-  	window.location.href="/orders"  
-</script> 
-	<% end %>
+
 <h1>Log In</h1>
 
-<%= form_tag sessions_path do %>
+<%= form_tag kitchen_sessions_path do %>
   <div class="field">
     <%= label_tag :email %>
     <%= text_field_tag :email, params[:email] %>

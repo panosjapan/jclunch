@@ -1,4 +1,5 @@
 <h1>Users</h1>
+<%= paginate @users %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -28,5 +29,5 @@
     <% end %>
   </tbody>
 </table>
-	<b>Total Users	<%= User.count %></b><br/><br/>
+	<b>Total Users:	<%= User.count %></b><br/><br/>
 <%= link_to 'New', new_admin_user_path, :style => 'color: white', :class => 'btn btn-primary' %>

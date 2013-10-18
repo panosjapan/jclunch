@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  skip_before_filter :authorize_admin, :authorize
+  
   # GET /menus
   # GET /menus.json
   def index

@@ -1,5 +1,5 @@
 class Admin::DepartmentsController < AdminController
-  skip_before_filter :authorize
+  #skip_before_filter :authorize
   
   # GET /departments
   # GET /departments.json

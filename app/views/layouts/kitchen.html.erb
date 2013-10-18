@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Panel</title>
+  <title>Kitchen Panel</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -22,24 +22,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" <%= link_to "Lunch Order Admin Panel", admin_orders_path %></a>
+        <a class="brand" <%= link_to "Kitchen Panel", admin_orders_path %></a>
         <div class="nav-collapse">
           <ul class="nav">   	
 	<% if current_user && current_user.admin == "Yes" %>
-			  	<li><%= link_to 'Orders', admin_orders_path %></li>
-				<li><%= link_to 'Users', admin_users_path %></li>
-				<li><%= link_to 'Menus', admin_menus_path %></li>
-				<li><%= link_to 'Menu Categories', admin_categories_path %></li>			
-				<li><%= link_to 'Regions', admin_regions_path %></li>
-				<li><%= link_to 'Departments', admin_departments_path %></li>
-			<% end %>
+			  	<li><%= link_to 'Orders', kitchen_orders_path %></li>
+		<% end %>
           </ul>
 		<% if current_user && current_user.admin == "Yes" %>
 		<ul class="nav pull-right">               
 	        <li class="divider-vertical"></li>
 	        <li style="color:lightblue;margin-top:10px;"><%= current_user.email %></li>
 	        <li class="divider-vertical"></li>
-	        <li><%= link_to 'Logout', admin_logout_path %></li>
+	        <li><%= link_to 'Logout', kitchen_logout_path %></li>
 	      </ul>
 	<% end %>
         </div>

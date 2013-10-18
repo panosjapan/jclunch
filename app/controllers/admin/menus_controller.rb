@@ -1,5 +1,5 @@
 class Admin::MenusController < AdminController
-  skip_before_filter :authorize_admin
+  #skip_before_filter :authorize_admin
   
   # GET /menus
   # GET /menus.json

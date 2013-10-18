@@ -1,6 +1,6 @@
-class AdminController < ApplicationController
+class KitchenController < ApplicationController
   before_filter :authorize_admin
-	layout 'admin'
+	layout 'kitchen'
 	@orders = Order.all
 	def authorize2
     unless User.find_by_id(session[:user_id])

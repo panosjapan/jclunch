@@ -1,10 +1,10 @@
 class Admin::UsersController < AdminController
-  skip_before_filter :authorize
+  #skip_before_filter :authorize
   
   
   def index
-    @users = User.all
 
+    @users = User.order("name").page(params[:page]).per(20)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
