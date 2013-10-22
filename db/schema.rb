@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131016144604) do
+ActiveRecord::Schema.define(:version => 20131022142320) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -34,11 +34,15 @@ ActiveRecord::Schema.define(:version => 20131016144604) do
 
   create_table "menus", :force => true do |t|
     t.string   "name"
-    t.decimal  "price",       :precision => 6, :scale => 2
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.decimal  "price",              :precision => 6, :scale => 2
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
     t.integer  "category_id"
     t.string   "state"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "orders", :force => true do |t|
@@ -81,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20131016144604) do
     t.datetime "password_reset_sent_at"
     t.string   "admin"
     t.integer  "department_id"
+    t.string   "type"
   end
 
 end

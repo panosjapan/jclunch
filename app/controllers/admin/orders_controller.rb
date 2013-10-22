@@ -1,6 +1,5 @@
 class Admin::OrdersController < AdminController
-  #skip_before_filter :authorize
-  
+before_filter :authorize_admin  
   # GET /orders
   # GET /orders.json
   def index
@@ -22,9 +21,8 @@ class Admin::OrdersController < AdminController
   # GET /orders/1
   # GET /orders/1.json
   def show
-     @search = Order.search(params[:q])
-       @orders = @search.result
-       
+     param1 = params[:param1]
+     
         respond_to do |format|
             format.html
             format.pdf do

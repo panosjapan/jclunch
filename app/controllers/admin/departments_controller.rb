@@ -1,6 +1,5 @@
 class Admin::DepartmentsController < AdminController
-  #skip_before_filter :authorize
-  
+  before_filter :authorize_admin  
   # GET /departments
   # GET /departments.json
   def index

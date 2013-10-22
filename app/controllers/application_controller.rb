@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_filter :authorize#, :authorize_admin
-
+  before_filter :authorize
+  before_filter :set_locale
+  
   protect_from_forgery
   
   #before_filter :authorize
@@ -17,8 +18,25 @@ class ApplicationController < ActionController::Base
   	end
       
     def authorize_admin
-      
-  	  redirect_to admin_root_url, alert: "Not authorized" if current_user.nil? || current_user.admin == "No"
+  	  redirect_to admin_login_url, alert: "Not authorized" if !current_user || current_user.type != "Admin"
   	end
+  	
+  	def authorize_kitchen
+  	  redirect_to kitchen_login_url, alert: "Not authorized" if !current_user || current_user.type != "Kitchen"
+  	end
+  	
+    private
+
+    def set_locale
+      I18n.locale = params[:locale] if params[:locale].present?
+      # current_user.locale
+      # request.subdomain
+      # request.env["HTTP_ACCEPT_LANGUAGE"]
+      # request.remote_ip
+    end
+
+    def default_url_options(options = {})
+      {locale: I18n.locale}
+    end
   	    
 end

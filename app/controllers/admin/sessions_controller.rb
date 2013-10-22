@@ -1,5 +1,5 @@
 class Admin::SessionsController < AdminController
-  skip_before_filter :authorize, :authorize_admin
+  #skip_before_filter :authorize, :authorize_admin
   def new
     @categories = Category.all
   end
@@ -15,7 +15,7 @@ class Admin::SessionsController < AdminController
 
   def create
     user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])  && user.admin == "Yes"
+    if user && user.authenticate(params[:password])  && user.type == "Admin"
       if params[:remember_me]
         cookies.permanent[:auth_token] = user.auth_token  
       else
@@ -30,6 +30,6 @@ class Admin::SessionsController < AdminController
 
   def destroy
     cookies.delete(:auth_token)
-    redirect_to admin_root_url, notice: "Logged out!"
+    redirect_to admin_login_url, notice: "Logged out!"
   end
 end

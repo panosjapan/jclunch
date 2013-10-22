@@ -2,4 +2,22 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+    menus:
+        title: "Menus"
+        name: "Name"
+        price: "Price"
+        Category: "Category"
+        photo: "Picture"
+       
+    layouts:
+        application:
+    admin:    
+        orders: "Orders"
+        users: "Users"
+        menus: "Menus"
+        categories: "Categories"
+        regions: "Regions"
+        departments: "Departments"
+        logout: "Logout"
+        
+  

@@ -1,6 +1,5 @@
 class Admin::RegionsController < AdminController
-  #skip_before_filter :authorize
-    
+before_filter :authorize_admin    
   # GET /regions
   # GET /regions.json
   def index

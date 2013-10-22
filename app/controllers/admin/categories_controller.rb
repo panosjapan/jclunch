@@ -1,5 +1,5 @@
 class Admin::CategoriesController < AdminController
-  #skip_before_filter :authorize
+  before_filter :authorize_admin
   
   # GET /categories
   # GET /categories.json

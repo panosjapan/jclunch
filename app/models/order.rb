@@ -20,9 +20,9 @@ class Order < ActiveRecord::Base
 	
 	def time
 	 
-	    d = Time.now+14.hour
+	    d = Time.now+13.hour+30.minute
 	    if self.date <= d.to_date
-      errors.add(:date, 'Sorry, next day lunch can be ordered before 10am')
+      errors.add(:date, 'Sorry, next day lunch can be ordered before 10:30am')
     end
   end
   

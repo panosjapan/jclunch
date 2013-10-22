@@ -1,0 +1,20 @@
+jp:
+    menus:
+        title: "メニュー"
+        name: "名前"
+        price: "価格"
+        category: "カテゴリ"
+        created_at: "で作成された"
+        actions: "アクション"
+        
+        layouts:
+            application:
+        admin:
+            orders: "jp"
+            users: "jp"
+            menus: "jp"
+            categories: "カテゴリ"
+            regions: "jp"
+            departments: "jp"
+            logout: "jp"
+        

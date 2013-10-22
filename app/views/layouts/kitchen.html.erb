@@ -22,14 +22,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" <%= link_to "Kitchen Panel", admin_orders_path %></a>
+        <a class="brand" <%= link_to "Kitchen Panel", kitchen_orders_path %></a>
         <div class="nav-collapse">
           <ul class="nav">   	
-	<% if current_user && current_user.admin == "Yes" %>
+	<% if current_user && current_user.type == "Kitchen" %>
 			  	<li><%= link_to 'Orders', kitchen_orders_path %></li>
 		<% end %>
           </ul>
-		<% if current_user && current_user.admin == "Yes" %>
+		<% if current_user && current_user.type == "Kitchen" %>
 		<ul class="nav pull-right">               
 	        <li class="divider-vertical"></li>
 	        <li style="color:lightblue;margin-top:10px;"><%= current_user.email %></li>

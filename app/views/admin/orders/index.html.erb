@@ -9,7 +9,7 @@
 <div class="actions"><%= f.submit "Search", :class => 'btn btn-primary' %></div>
     <% end %><br/>
 
-
+<% if params[:q] %>
 <h3>Results</h3>
 
 <table class="table table-striped">
@@ -43,6 +43,8 @@
     <% end %>
   </tbody>
 </table>
- <p><%= link_to "Printable Receipt (PDF)", admin_orders_path(@search.date_cont, format:"pdf") %></p>
+<p><%= link_to "Printable Receipt (PDF)", admin_orders_path({:q =>
+params[:q],:format => "pdf"}) %></p>
+<% end %>
 
-<%= link_to 'New', new_admin_order_path, :style => 'color: white', :class => 'btn btn-primary' %>
+

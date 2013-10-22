@@ -14,6 +14,7 @@ end
 gem 'ransack'
 gem 'kaminari'
 gem 'jquery-ui-rails'
+gem "paperclip", "~> 3.0", :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem "heroku", '~> 2.35.0'
 # Gems used only for assets and not required
@@ -31,6 +32,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'globalize3'
+
 gem 'populator'
 gem 'money'
 gem 'prawn'

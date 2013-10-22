@@ -1,5 +1,4 @@
 class Kitchen::SessionsController < KitchenController
-  skip_before_filter :authorize, :authorize_admin
   def new
     @categories = Category.all
   end
@@ -15,7 +14,7 @@ class Kitchen::SessionsController < KitchenController
 
   def create
     user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])  && user.admin == "Yes"
+    if user && user.authenticate(params[:password])  && user.type == "Kitchen"
       if params[:remember_me]
         cookies.permanent[:auth_token] = user.auth_token  
       else
@@ -30,6 +29,6 @@ class Kitchen::SessionsController < KitchenController
 
   def destroy
     cookies.delete(:auth_token)
-    redirect_to kitchen_root_url, notice: "Logged out!"
+    redirect_to kitchen_login_url, notice: "Logged out!"
   end
 end

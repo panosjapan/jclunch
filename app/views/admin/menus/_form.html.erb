@@ -1,5 +1,5 @@
 
-<%= simple_form_for [:admin,@menu], :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [:admin,@menu], :html => { :class => 'form-horizontal', :multipart => true  } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Menu</legend>
 
@@ -7,6 +7,8 @@
 	<%= f.input :price, :label => 'Price (£)' %>
 
 	<%= f.input :category_id, :label => 'Category', :as => :select, :collection => 		Category.all.map{|c| ["#{c.name}", c.id]}, :include_blank => false  %>
+    <%= f.input :photo %>
+
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', admin_menus_path, :class => 'btn' %>

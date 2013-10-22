@@ -1,38 +1,40 @@
 class Kitchen::OrdersController < KitchenController
-  #skip_before_filter :authorize
+  before_filter :authorize_kitchen
+  
   
   # GET /orders
   # GET /orders.json
-  def index
-    @search = Order.search(params[:q])
-      @orders = @search.result
-      
+
+    def index
+      @search = Order.search(params[:q])
+        @orders = @search.result
+       
+        respond_to do |format|
+            format.html
+            format.pdf do
+              pdf = OrderPdf.new(@orders, view_context)
+                   send_data pdf.render, filename: "order_#{params[:region_name_cont]}.pdf",
+                                         type: "application/pdf",
+                                         disposition: "inline"
+          end
+        end
+    end
+
+    # GET /orders/1
+    # GET /orders/1.json
+    def show
+      @order = Order.find(params[:id])
+
       respond_to do |format|
           format.html
           format.pdf do
-            pdf = OrderPdf.new(@search.result, view_context)
-                 send_data pdf.render, filename: "orders.pdf",
+            pdf = OrderPdf.new(@order, view_context)
+                 send_data pdf.render, filename: "order_#{@order.date}.pdf",
                                        type: "application/pdf",
                                        disposition: "inline"
+          end
         end
       end
-  end
-
-  # GET /orders/1
-  # GET /orders/1.json
-  def show
-    @order = Order.find(params[:id])
-
-    respond_to do |format|
-        format.html
-        format.pdf do
-          pdf = OrderPdf.new(@order, view_context)
-               send_data pdf.render, filename: "order_#{@order.date}.pdf",
-                                     type: "application/pdf",
-                                     disposition: "inline"
-        end
-      end
-    end
 
   # GET /orders/new
   # GET /orders/new.json

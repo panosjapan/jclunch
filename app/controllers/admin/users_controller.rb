@@ -1,6 +1,5 @@
 class Admin::UsersController < AdminController
-  #skip_before_filter :authorize
-  
+before_filter :authorize_admin  
   
   def index
 

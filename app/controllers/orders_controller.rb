@@ -4,8 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.order('date DESC') .scoped.select { |m| m.user_id == current_user.id }
-  
+   @orders = Order.where('user_id' => current_user.id).order('date DESC').page(params[:page]).per(15)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @orders }

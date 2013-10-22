@@ -10,7 +10,7 @@ LunchOrder::Application.routes.draw do
   resources :regions
   resources :departments
   resources :orders
-  resources :users  
+  resources :users
   resources :sessions
   resources :password_resets
   root :to => 'sessions#new'
@@ -19,9 +19,10 @@ LunchOrder::Application.routes.draw do
   
   #get 'logout', to: 'sessions#destroy', as: 'logout'
 
-
   
   namespace :admin do
+  
+    
     root :to => 'sessions#new'
     get "menus/index"
     get "logout" => "sessions#destroy", :as => "logout"
@@ -38,6 +39,12 @@ LunchOrder::Application.routes.draw do
     resources :orders
     resources :sessions
     resources :searches
+    scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+      resources :menus
+      root to: 'menus#index'
+    end
+    match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
+    match '', to: redirect("/#{I18n.default_locale}")
   end 
   
   namespace :kitchen do
