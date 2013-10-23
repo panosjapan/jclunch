@@ -1,4 +1,25 @@
 jp:
+
+    date:
+        formats:
+          default: ! '%Y/%m/%d'
+          long: ! '%Y年%m月%d日(%a)'
+          short: ! '%m/%d'
+        month_names:
+        -
+        - 1月
+        - 2月
+        - 3月
+        - 4月
+        - 5月
+        - 6月
+        - 7月
+        - 8月
+        - 9月
+        - 10月
+        - 11月
+        - 12月
+        
     menus:
         title: "メニュー"
         name: "名前"
@@ -35,6 +56,8 @@ jp:
           search_title: "検索順序によって"
           search_button: "検索"
           search_results: "結果"
+          search_placeholder: "型領域..."
+          
                     
           
                 

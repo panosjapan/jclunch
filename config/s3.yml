@@ -1,0 +1,13 @@
+development:
+  bucket: jclunchdev
+  access_key_id: AKIAJR3K4LNYURY3YY3Q
+  secret_access_key: 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
+
+test:
+  access_key_id: AKIAJR3K4LNYURY3YY3Q
+  secret_access_key: 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
+
+production:
+  bucket: jclunch
+  access_key_id: AKIAJR3K4LNYURY3YY3Q
+  secret_access_key: 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

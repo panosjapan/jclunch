@@ -15,6 +15,7 @@ gem 'ransack'
 gem 'kaminari'
 gem 'jquery-ui-rails'
 gem "paperclip", "~> 3.0", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk'
 
 gem "heroku", '~> 2.35.0'
 # Gems used only for assets and not required

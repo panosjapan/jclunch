@@ -3,7 +3,7 @@
 
 <%= search_form_for [:admin,@search] do |f| %>
 
-      <%= f.text_field :region_name_cont, :placeholder => 'Type Region...'  %><br/>
+      <%= f.text_field :region_name_cont, :placeholder => (t "orders.search_placeholder")  %><br/>
       <%= f.date_select :date_cont,  :order => [:day,:month,:year]  %>
 
 <div class="actions"><%= f.submit (t "orders.search_button"), :class => 'btn btn-primary' %></div>

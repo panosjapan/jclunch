@@ -1,5 +1,9 @@
 class Category < ActiveRecord::Base
   attr_accessible :name, :parent_id
+  translates :name
+  class Translation
+      attr_accessible :locale
+    end
   
   has_many :menus
   scope :menu_list,order("name")

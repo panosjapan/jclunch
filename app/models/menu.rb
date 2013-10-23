@@ -14,9 +14,12 @@ class Menu < ActiveRecord::Base
   scope :hidden,  where(state: 'hidden')
   
   has_attached_file :photo, :styles => { :small => "150x150>", :medium => "250x250" },
-                    :url  => "/assets/menus/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/menus/:id/:style/:basename.:extension"
-
+                    #:url  => "/assets/menus/:id/:style/:basename.:extension",
+                    #:path => ":rails_root/public/assets/menus/:id/:style/:basename.:extension"
+                     :storage => :s3,
+                      :s3_credentials => "#{Rails.root}/config/s3.yml",
+                      :path => ":attachment/:id/:style.:extension"
+                      
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes
   def category_name

@@ -53,6 +53,10 @@ GEM
     addressable (2.3.5)
     afm (0.2.0)
     arel (3.0.2)
+    aws-sdk (1.11.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
@@ -206,12 +210,14 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   activemerchant
+  aws-sdk
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass
   bootstrap-wysihtml5-rails (~> 0.2.12)
