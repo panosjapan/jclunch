@@ -1,4 +1,4 @@
-<h1>Users</h1>
+<h1><%= t "users.title" %></h1>
 <%= paginate @users %>
 <table class="table table-striped">
   <thead>
@@ -22,12 +22,12 @@
 		<td><%= user.type %></td>
 		<td><%= user.created_at %></td>
         <td>
-          <%= link_to 'Edit', edit_admin_user_path(user), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', admin_user_path(user), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to (t "orders.edit"), edit_admin_user_path(user), :class => 'btn btn-mini' %>
+          <%= link_to (t "orders.destroy"), admin_user_path(user), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-	<b>Total Users:	<%= User.count %></b><br/><br/>
-<%= link_to 'New', new_admin_user_path, :style => 'color: white', :class => 'btn btn-primary' %>
+	<b><%= t "users.total" %>	<%= User.count %></b><br/><br/>
+<%= link_to (t "orders.new"), new_admin_user_path, :style => 'color: white', :class => 'btn btn-primary' %>

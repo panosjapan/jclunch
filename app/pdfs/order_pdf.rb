@@ -1,9 +1,11 @@
 class OrderPdf < Prawn::Document
-  def initialize(order, view)
+  def initialize(order, search, view)
     super(top_margin: 70)
     @orders = order
+    @search = search
     @view = view
     date
+    region
     order_number
     orders
     orders2
@@ -14,15 +16,16 @@ end
       text "Total Orders: #{@orders.count}", size: 16, style: :bold
   end
   
-  def params
+  def region
+    if @search.region_name_cont != nil
+    text "Region: #{@search.region_name_cont}", size: 16, style: :bold
     end
+  end
       
       def date 
-        c=@orders.select("DISTINCT(date)"). map do |order|
-        
-        text "Date: #{order.date}", size: 16, style: :bold
+        text "Date: #{@search.date_cont}", size: 16, style: :bold
       end
-    end
+
       
     def orders
       move_down 20

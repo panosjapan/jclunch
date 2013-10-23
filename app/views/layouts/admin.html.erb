@@ -22,7 +22,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" <%= link_to "Lunch Order Admin Panel", admin_orders_path %></a>
+        <a class="brand" <%= link_to t('.title'), admin_orders_path %></a>
         <div class="nav-collapse">
           <ul class="nav">  
 		
@@ -52,6 +52,9 @@
 		Language:
 			<%= link_to_unless_current "English", locale: "en" %> |
 			<%= link_to_unless_current "Japanese", locale: "jp" %> 
+
+
+			
 	<% flash.each do |name, msg| %> 
 	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
 	    <a class="close" data-dismiss="alert">×</a>

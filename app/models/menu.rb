@@ -1,7 +1,10 @@
 class Menu < ActiveRecord::Base
-    
+   
   attr_accessible :name, :photo, :price, :category, :category_id, :category_name
-  
+  translates :name
+  class Translation
+      attr_accessible :locale
+    end
   belongs_to :category
   validates_length_of :name, :within => 3..40
   validates_uniqueness_of :name

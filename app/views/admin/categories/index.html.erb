@@ -1,4 +1,4 @@
-<h1>Categories</h1>
+<h1><%= t "categories.title" %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -15,13 +15,13 @@
         <td><%= link_to category.name, admin_category_path(category) %></td>
         <td><%= category.created_at %></td>
         <td>
-          <%= link_to 'Edit', edit_admin_category_path(category), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', admin_category_path(category), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to (t "orders.edit"), edit_admin_category_path(category), :class => 'btn btn-mini' %>
+          <%= link_to (t "orders.destroy"), admin_category_path(category), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<b>Total Categories:	<%= Category.count %></b><br/><br/>
+<b><%= t "categories.total" %>	<%= Category.count %></b><br/><br/>
 
-<%= link_to 'New', new_admin_category_path, :style => 'color: white',  :class => 'btn btn-primary' %>
+<%= link_to (t "orders.new"), new_admin_category_path, :style => 'color: white',  :class => 'btn btn-primary' %>

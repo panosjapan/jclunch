@@ -9,9 +9,5 @@ class Staff < User
   
   def kitchen?
     false
-  end
-  
-  def name
-    "staff"
-  end
+  end  
 end

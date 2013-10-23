@@ -1,16 +1,16 @@
 
-<h3>Search Orders by</h>
+<h3><%= t "orders.search_title" %></h>
 
 <%= search_form_for [:admin,@search] do |f| %>
 
       <%= f.text_field :region_name_cont, :placeholder => 'Type Region...'  %><br/>
-      <%= f.date_select :date_cont  %>
+      <%= f.date_select :date_cont,  :order => [:day,:month,:year]  %>
 
-<div class="actions"><%= f.submit "Search", :class => 'btn btn-primary' %></div>
+<div class="actions"><%= f.submit (t "orders.search_button"), :class => 'btn btn-primary' %></div>
     <% end %><br/>
 
 <% if params[:q] %>
-<h3>Results</h3>
+<h3><%= t "orders.search_results" %> for Date: <%= @search.date_cont %> and Region: <%= @search.region_name_cont %> </h3>
 
 <table class="table table-striped">
   <thead>

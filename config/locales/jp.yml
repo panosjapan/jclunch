@@ -6,15 +6,59 @@ jp:
         category: "カテゴリ"
         created_at: "で作成された"
         actions: "アクション"
+        total: "トータルメニュー："
+        toggle: "オン/オフ"
         
-        layouts:
-            application:
+    users:
+          title: "ユーザー"
+          total: "ユーザ合計："
+        
+    regions:
+        title: "地域"        
+        total: "合計地域："
+    
+    departments:
+        title: "デパート"
+        total: "合計デパート："
+    
+    categories:
+          title: "カテゴリ"    
+          total: "トータルカテゴリ："
+        
+    orders:
+          title: "受注"
+          total: "合計デパート："
+          history: "私のランチ履歴"
+          new: "新しい"
+          destroy: "破壊する"
+          edit: "編集"
+          search_title: "検索順序によって"
+          search_button: "検索"
+          search_results: "結果"
+                    
+          
+                
+    layouts:
         admin:
-            orders: "jp"
-            users: "jp"
-            menus: "jp"
-            categories: "カテゴリ"
-            regions: "jp"
-            departments: "jp"
-            logout: "jp"
+          title: "ランチオーダー管理パネル"
+          orders: "受注"
+          users: "ユーザー"
+          menus: "メニュー"
+          categories: "カテゴリ"
+          regions: "地域"
+          departments: "デパート"
+          logout: "ログアウト"
+          
+        application:    
+          title: "ランチ注文"
+          order_history: "ご注文履歴"
+          new_order: "ニューオーダー"
+          menus: "メニュー"
+          logout: "ログアウト"
+      
+      
+        kitchen:    
+          title: "キッチンパネル"
+          orders: "ご注文履歴"
+          logout: "ログアウト"
         

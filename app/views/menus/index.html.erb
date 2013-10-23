@@ -1,7 +1,8 @@
-<h1>Menus</h1>
+<h1><%= t "menus.title" %></h1>
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Picture</th>
       <th>Name</th>
       <th>Price</th>
 	  <th>Category</th>
@@ -11,6 +12,7 @@
   <tbody>
     <% @menus.each do |menu| %>
       <tr>
+		<td><%= image_tag(menu.photo.url, :size => "100x100") %></td>
         <td><%= menu.name %></td>
 		<td><%= number_to_currency(menu.price, :unit => "£")  %></td>
 		<td><%= menu.category_name %></td>

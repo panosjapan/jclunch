@@ -1,4 +1,4 @@
-<h2>My Lunch History</h2>
+<h2><%= t "orders.history" %></h2>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -18,13 +18,13 @@
         <td><%= order.region_name %></td>
 
         <td>
-          <%= link_to 'Edit', edit_order_path(order), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', order_path(order), :method => :delete, :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to (t "orders.edit"), edit_order_path(order), :class => 'btn btn-mini' %>
+          <%= link_to (t "orders.destroy"), order_path(order), :method => :delete, :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <%= paginate @orders %>
-<%= link_to 'New', new_order_path, :style => 'color: white', :class => 'btn btn-primary' %>
+<%= link_to (t "orders.new"), new_order_path, :style => 'color: white', :class => 'btn btn-primary' %>
 	

@@ -21,15 +21,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" <%= link_to "Lunch Order", menus_path %></a>
+        <a class="brand" <%= link_to t('.title'), menus_path %></a>
         <div class="nav-collapse">
           <ul class="nav">	
 	
-	            <li><%= link_to 'Menus', menus_path %></li>
+	            <li><%= link_to t('.menus'), menus_path %></li>
 		  	
 				<% if current_user %>
-			  	<li><%= link_to 'Order History', orders_path %></li>
-				<li><%= link_to 'New Order', new_order_path %></li>
+			  	<li><%= link_to t('.order_history'), orders_path %></li>
+				<li><%= link_to t('.new_order'), new_order_path %></li>
 				<% end %>
           </ul>
 		<% if current_user %>
@@ -37,7 +37,7 @@
 	        <li class="divider-vertical"></li>
 	        <li style="color:lightblue;margin-top:10px;"><%= current_user.email %></li>
 	        <li class="divider-vertical"></li>
-	        <li><%= link_to t('menu.logout'), logout_path %></li>
+	        <li><%= link_to t('.logout'), logout_path %></li>
 	      </ul>
 	<% end %>
         </div>
@@ -47,7 +47,9 @@
 
   <div class="container">
 	
-	
+		Language:
+			<%= link_to_unless_current "English", locale: "en" %> |
+			<%= link_to_unless_current "Japanese", locale: "jp" %>
 
 	<% flash.each do |name, msg| %>
 	  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

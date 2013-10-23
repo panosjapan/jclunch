@@ -11,7 +11,4 @@ class Admin < User
     false
   end
   
-  def name
-    "admin"
-  end
 end

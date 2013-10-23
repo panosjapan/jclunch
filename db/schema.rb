@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022142320) do
+ActiveRecord::Schema.define(:version => 20131023120629) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(:version => 20131022142320) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "menu_translations", :force => true do |t|
+    t.integer  "menu_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "menu_translations", ["locale"], :name => "index_menu_translations_on_locale"
+  add_index "menu_translations", ["menu_id"], :name => "index_menu_translations_on_menu_id"
 
   create_table "menus", :force => true do |t|
     t.string   "name"

@@ -11,7 +11,4 @@ class Kitchen < User
     false
   end
   
-  def name
-    "kitchen"
-  end
 end

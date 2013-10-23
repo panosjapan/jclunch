@@ -1,4 +1,4 @@
-<h1>Regions</h1>
+<h1><%= t "regions.title" %> </h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -22,6 +22,6 @@
     <% end %>
   </tbody>
 </table>
-<b>Total Regions:	<%= Region.count %></b><br/><br/>
+<b><%= t "regions.total" %>	<%= Region.count %></b><br/><br/>
 
-<%= link_to 'New', new_admin_region_path, :style => 'color: white', :class => 'btn btn-primary' %>
+<%= link_to (t "orders.new"), new_admin_region_path, :style => 'color: white', :class => 'btn btn-primary' %>

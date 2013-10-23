@@ -8,10 +8,41 @@ en:
         price: "Price"
         Category: "Category"
         photo: "Picture"
+        total: "Total Menus"
+        toggle: "ON/OFF"
        
+       
+    users:
+        title: "Users"
+        total: "Total Users："
+
+    regions:
+        title: "Regions"        
+        total: "Total Users："
+
+    departments:
+        title: "Departments"
+        total: "Total Departments："
+
+    categories:
+          title: "Categories"    
+          total: "Total Categories："
+
+    orders:
+          title: "Orders"
+          total: "Total Orders："
+          new: "New Order"
+          history: "My Lunch History"
+          new: "New"
+          destroy: "Destroy"
+          edit: "Edit"
+          search_title: "Search Orders by"
+          search_button: "Search"
+          search_results: "Results"
+            
     layouts:
-        application:
-    admin:    
+      admin:    
+        title: "Lunch Order Admin Panel"
         orders: "Orders"
         users: "Users"
         menus: "Menus"
@@ -21,3 +52,15 @@ en:
         logout: "Logout"
         
   
+      application:    
+        title: "Lunch Order"
+        order_history: "My Lunch History"
+        new_order: "New Order"
+        menus: "Menus"
+        logout: "Logout"
+        
+        
+      kitchen:    
+        title: "Kitchen Panel"
+        orders: "Orders"
+        logout: "Logout"
