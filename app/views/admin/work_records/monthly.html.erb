@@ -1,0 +1,33 @@
+<%- model_class = WorkRecord -%>
+<div class="page-header">
+  <h2 style="text-align:center;">
+	  <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+	</h2>
+</div>
+<%= %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('simple_form.labels.work_record.user') %></th>
+			<th>Not Approved</th>
+      <th>Approved</th>
+      <th>Total Hours</th>
+      <th>Total</th>
+			<th>Download</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+				<td><%= pluralize(WorkRecord.monthly(@date).b_user(user.id).not_approved.length,'day') %></td>
+				<td><%= pluralize(WorkRecord.monthly(@date).b_user(user.id).approved.length,'day') %></td>
+				<td><%= pluralize(WorkRecord.monthly(@date).b_user(user.id).approved.inject(0){|sum,x| sum + x.daily_work_time},'hour') %></td>
+        <td><%= WorkRecord.monthly(@date).b_user(user.id).approved.inject(0){|sum,x| sum + (x.daily_work_time*x.wage)}.to_money.format %></td>
+				<td><%= link_to t('nav.timecard'), download_time_card_admin_user_path(user,:year => @date.year,:month => @date.month), :style => 'color: white', method: :post, class: "btn btn-mini btn-info" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

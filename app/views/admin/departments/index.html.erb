@@ -4,6 +4,8 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Work Starts at</th>
+      <th>Minute Step</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -13,7 +15,9 @@
       <tr>
         <td><%= department.id %></td>
         <td><%= link_to department.name, department_path(department) %></td>
-        <td><%= department.created_at %></td>
+		<td><%= department.work_start_at_to_strf %></td>        
+		<td><%= department.minute_step %></td>        
+		<td><%= department.created_at %></td>
         <td>
           <%= link_to (t "orders.edit"), edit_admin_department_path(department), :class => 'btn btn-mini' %>
           <%= link_to (t "orders.destroy"), admin_department_path(department), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>

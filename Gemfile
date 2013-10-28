@@ -10,7 +10,6 @@ gem 'mysql2'
 group :production do
   gem 'thin'
 end
-
 gem 'ransack'
 gem 'kaminari'
 gem 'jquery-ui-rails'

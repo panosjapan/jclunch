@@ -4,10 +4,10 @@ namespace :db do
     require 'populator'
     
  Order.populate 100 do |order|
-          order.user_id = [1, 3]
-          order.menu_id = [1, 2, 3]
-          order.region_id = [1, 2]
-          order.date  = 2.years.ago..Time.now
+          order.user_id = [1, 3, 7, 8] 
+          order.menu_id = [1, 3, 10, 13]
+          order.region_id = [1, 2, 3]
+          order.date  = 3.days.ago..Time.now
         end
     
   end

@@ -1,0 +1,32 @@
+<%- model_class = WorkRecord -%>
+<div class="page-header">
+  <h2 style="text-align:center;">
+	<%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%b %Y") %>
+    <%= link_to ">", date: @date.next_month %>    
+	</h2>
+  <div style="text-align:center;">
+ 
+  </div>
+</div>
+<%= %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('simple_form.labels.work_record.work_on') %></th>
+      <th><%= t('simple_form.labels.work_record.start_at') %></th>
+      <th><%= t('simple_form.labels.work_record.lunch') %></th>
+      <th><%= t('simple_form.labels.work_record.end_at') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @work_records.each do |work_record| %>
+      <tr>
+        <td><%= work_record.work_on.strftime("%d %b") if work_record.work_on.present? %></td>
+        <td><%= time_strftime work_record.start_at %></td>
+        <td><%= show_lunch_min(work_record) %></td>
+        <td><%= time_strftime work_record.end_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

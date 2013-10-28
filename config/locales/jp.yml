@@ -30,6 +30,7 @@ jp:
         total: "トータルメニュー："
         toggle: "オン/オフ"
         
+        
     users:
           title: "ユーザー"
           total: "ユーザ合計："
@@ -71,6 +72,8 @@ jp:
           regions: "地域"
           departments: "デパート"
           logout: "ログアウト"
+          language: "言語"
+          
           
         application:    
           title: "ランチ注文"
@@ -78,10 +81,14 @@ jp:
           new_order: "ニューオーダー"
           menus: "メニュー"
           logout: "ログアウト"
+          language: "言語"
+          
       
       
         kitchen:    
           title: "キッチンパネル"
           orders: "ご注文履歴"
           logout: "ログアウト"
+          language: "言語"
+          
         

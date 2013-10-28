@@ -1,0 +1,13 @@
+<td><%= work_record.user.full_name %></td>
+<td><%= show_wr_status(work_record) %></td>
+<td><%= time_strftime work_record.start_at %></td>
+<td><%= time_strftime work_record.lunch_start_at %></td>
+<td><%= time_strftime work_record.lunch_end_at %></td>
+<td><%= time_strftime work_record.end_at %></td>
+<td><%= work_record.daily_work_time %></td>
+<td><%= link_to t('.edit', :default => t("helpers.links.edit")),
+            edit_work_record_path(work_record), :class => 'btn btn-mini',remote: true %>&nbsp;
+    <%= link_to t('helpers.links.approve'), approve_work_record_path(work_record), {class: 'btn btn-mini btn-warning', remote: true,method: :post} if work_record.left? || work_record.pending? %>
+    <%= link_to t('helpers.links.suspend'), suspend_work_record_path(work_record), class: 'btn btn-mini', method: :post, remote: true if work_record.approved? %>
+    <%= link_to t('helpers.links.destroy'), work_record_path(work_record), class: 'btn btn-mini btn-danger', method: :delete, remote: true, confirm: "Are you sure?" %>    
+</td>

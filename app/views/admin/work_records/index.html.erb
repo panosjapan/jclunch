@@ -1,0 +1,33 @@
+<%- model_class = WorkRecord -%>
+<div class="page-header">
+  <h2 style="text-align:center;">
+		<%= link_to "<", date: @date.yesterday %>
+    <%= @date.strftime("%d %b %a") %>
+    <%= link_to ">", date: @date.tomorrow %>    
+	</h2>
+</div>
+<%= %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('simple_form.labels.work_record.user') %></th>
+			<th><%= t('simple_form.labels.work_record.state') %></th>
+      <th><%= t('simple_form.labels.work_record.start_at') %></th>
+      <th><%= t('simple_form.labels.work_record.lunch_start_at') %></th>
+      <th><%= t('simple_form.labels.work_record.lunch_end_at') %></th>
+			<th><%= t('simple_form.labels.work_record.end_at') %></th>
+			<th><%= t('simple_form.labels.work_record.work_hours') %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody id="work_records">
+    <% @work_records.each do |work_record| %>
+      <tr id="wr_<%= work_record.id %>">
+        <%= render partial: 'work_record', object: work_record %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to t('.new'), new_admin_work_record_path, :style => 'color: white',
+            :class => 'btn btn-primary', remote: true %>
+

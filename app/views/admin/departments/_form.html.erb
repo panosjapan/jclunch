@@ -4,6 +4,8 @@
     <legend><%= controller.action_name.capitalize %> Department</legend>
 
     <%= f.input :name %>
+    <%= f.input :work_start_at, input_html: {class: 'input-mini'} %>
+    <%= f.input :minute_step, input_html: {class: 'input-mini'} %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

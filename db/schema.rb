@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131023161039) do
+ActiveRecord::Schema.define(:version => 20131028144703) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(:version => 20131023161039) do
 
   create_table "departments", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.time     "work_start_at"
+    t.integer  "minute_step"
   end
 
   create_table "menu_translations", :force => true do |t|
@@ -100,14 +102,33 @@ ActiveRecord::Schema.define(:version => 20131023161039) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "admin"
     t.integer  "department_id"
-    t.string   "type"
+    t.string   "kind"
+    t.decimal  "wage",                   :precision => 8, :scale => 2
+    t.string   "ni_number"
+  end
+
+  create_table "work_records", :force => true do |t|
+    t.string   "state"
+    t.date     "work_on"
+    t.time     "attend_at"
+    t.time     "start_at"
+    t.time     "end_at"
+    t.time     "lunch_start_at"
+    t.time     "lunch_end_at"
+    t.time     "left_at"
+    t.decimal  "wage",           :precision => 8, :scale => 2, :default => 0.0
+    t.integer  "user_id"
+    t.integer  "department_id"
+    t.integer  "approved_by"
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
   end
 
 end

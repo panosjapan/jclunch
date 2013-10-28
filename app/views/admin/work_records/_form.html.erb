@@ -1,0 +1,13 @@
+<%= simple_form_for @work_record, :html => { :class => 'form-horizontal' } do |f| %>
+	<%= f.input :attend_at if @work_record.attend_at.present? %>
+  <%= f.input :start_at, minute_step: current_user.try(:department).try(:minute_step).to_i if @work_record.start_at.present? %>
+  <%= f.input :lunch_start_at, minute_step: current_user.try(:department).try(:minute_step).to_i if @work_record.lunch_start_at.present? %>
+  <%= f.input :lunch_end_at, minute_step: current_user.try(:department).try(:minute_step).to_i if @work_record.lunch_end_at.present? %>
+	<%= f.input :end_at,minute_step: current_user.try(:department).try(:minute_step).to_i if @work_record.end_at.present? %>
+  <%= f.input :wage %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                work_records_path, :class => 'btn' %>
+  </div>
+<% end %>

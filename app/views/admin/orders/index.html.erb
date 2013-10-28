@@ -10,7 +10,7 @@
     <% end %><br/>
 
 <% if params[:q] %>
-<h3><%= t "orders.search_results" %> for Date: <%= @search.date_cont %> and Region: <%= @search.region_name_cont %> </h3>
+<h3><%= t "orders.search_results" %> for Date: <%= @search.date_cont %>  </h3>
 
 <table class="table table-striped">
   <thead>
@@ -43,8 +43,7 @@
     <% end %>
   </tbody>
 </table>
-<p><%= link_to "Printable Receipt (PDF)", admin_orders_path({:q =>
-params[:q],:format => "pdf"}) %></p>
+
 <% end %>
 
 

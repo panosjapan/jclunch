@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <button class="close" data-dismiss="modal">&times;</button>
+  <h3>Edit</h3>
+</div>
+<div class="modal-body">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">×</a>
+      <%= raw(msg) %>
+    </div>
+  <% end %>
+
+  <%= simple_form_for @work_record, :html => { :class => 'form-horizontal', remote: true } do |f| %>
+    <%= f.input :state, collection: ['attended', 'left', 'approved', 'pending'] %>
+    <%= f.input :attend_at, input_html: {class: 'input-small'} %>
+    <%= f.input :start_at, input_html: {class: 'input-small'}, minute_step: current_user.try(:department).try(:minute_step).to_i %>
+    <%= f.input :lunch_start_at, input_html: {class: 'input-small'}, minute_step: current_user.try(:department).try(:minute_step).to_i %>
+    <%= f.input :lunch_end_at, input_html: {class: 'input-small'}, minute_step: current_user.try(:department).try(:minute_step).to_i %>
+    <%= f.input :end_at, minute_step: current_user.try(:department).try(:minute_step).to_i, input_html: {class: 'input-small'} %>
+    <%= f.input :left_at, input_html: {class: 'input-small'} %>
+  <div class="form-actions">
+    <%= f.submit "Submit", :class => 'btn btn-primary' %>
+    <a href="#" class="btn" data-dismiss="modal" ><%= t('helpers.links.cancel')%></a>
+  </div>
+
+  <% end %>
+  
+  
+</div>
+<div class="modal-footer">
+</div>

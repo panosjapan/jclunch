@@ -43,7 +43,7 @@ en:
             
     layouts:
       admin:    
-        title: "Lunch Order Admin Panel"
+        title: "Admin Panel"
         orders: "Orders"
         users: "Users"
         menus: "Menus"
@@ -51,6 +51,8 @@ en:
         regions: "Regions"
         departments: "Departments"
         logout: "Logout"
+        language: "Language"
+        
         
   
       application:    
@@ -59,9 +61,12 @@ en:
         new_order: "New Order"
         menus: "Menus"
         logout: "Logout"
+        language: "Language"
         
         
       kitchen:    
         title: "Kitchen Panel"
         orders: "Orders"
         logout: "Logout"
+        language: "Language"
+        

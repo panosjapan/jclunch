@@ -15,7 +15,7 @@ class Admin::SessionsController < AdminController
 
   def create
     user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])  && user.type == "Admin"
+    if user && user.authenticate(params[:password])  && user.kind == "Admin"
       if params[:remember_me]
         cookies.permanent[:auth_token] = user.auth_token  
       else

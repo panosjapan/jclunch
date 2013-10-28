@@ -17,8 +17,13 @@
 
 
 //= require jquery.ui.datepicker
+$(document).ready(function() {
+	$('div#whatever').css('display', 'none');
+			
+			
+});
 
 
-$('div#whatever').css('display', 'none');
+
 
 

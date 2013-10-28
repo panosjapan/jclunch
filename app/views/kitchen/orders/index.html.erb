@@ -1,16 +1,16 @@
 
-<h3>Search Orders by</h>
+<h3>Search by Date</h3>
 
 <%= search_form_for [:kitchen,@search] do |f| %>
 
-      <%= f.text_field :region_name_cont, :placeholder => 'Type Region...'  %><br/>
       <%= f.date_select :date_cont, :order => [:day,:month,:year]  %>
 
 <div class="actions"><%= f.submit "Search", :class => 'btn btn-primary' %></div>
     <% end %><br/>
 
 <% if params[:q] %>
-<h3><%= t "orders.search_results" %> for Date: <%= @search.date_cont %> and Region: <%= @search.region_name_cont %> </h3>
+<h3><%= t "orders.search_results" %> for Date: <%= @search.date_cont %>&nbsp;&nbsp;&nbsp;<%= link_to(image_tag("print.jpeg", :size => "80x80"), kitchen_orders_path({:q =>
+	params[:q],:format => "pdf"}))  %></h3>
 
 <table class="table table-striped">
   <thead>
@@ -44,7 +44,6 @@
   </tbody>
 </table>
 <b>Total Orders:	<%= @orders.count %></b><br/><br/>
-<p><%= link_to "Print Orders (PDF)", kitchen_orders_path({:q =>
-params[:q],:format => "pdf"}) %></p>
-<% end %>
+
+<% end %></br><br/>
 

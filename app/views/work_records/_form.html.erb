@@ -1,0 +1,23 @@
+<div id="login-container">
+	<div id="login-header" style="text-align:center;">
+		<h3><%= Time.now %></h3>
+	</div>
+	<div id="login-content" class="clearfix" style='text-align:center;'>
+		<h4><%= current_user.email %></h4>
+	
+			<div style='text-align:center;'>
+		 
+			<%= simple_form_for @work_record, :html => { :class => '' } do |f| %>
+				
+				<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+				<%= f.input :state, :as => :hidden, :input_html => { :value => 'Pending' } %>  
+				<%= f.input :left_at, :as => :hidden, :input_html => { :value => Time.now } %>  
+				<%= f.input :work_on, :as => :hidden, :input_html => { :value => Date.today } %>
+			  <%= f.input :lunch_start_at, default: @ls, minute_step: @step, input_html: {class: 'input-mini'} %>
+			  <%= f.input :lunch_end_at, default: @le, minute_step: @step, input_html: {class: 'input-mini'} %>
+				<%= f.submit "Leaving Job", :class => 'btn btn-primary' %>
+			<% end %>
+			</div>
+
+	</div>
+</div>

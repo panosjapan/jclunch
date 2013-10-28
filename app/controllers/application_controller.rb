@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
   	end
       
     def authorize_admin
-  	  redirect_to admin_login_url, alert: "Not authorized" if !current_user || current_user.type != "Admin"
+  	  redirect_to admin_login_url, alert: "Not authorized" if !current_user || current_user.kind != "Admin"
   	end
   	
   	def authorize_kitchen
-  	  redirect_to kitchen_login_url, alert: "Not authorized" if !current_user || current_user.type != "Kitchen"
+  	  redirect_to kitchen_login_url, alert: "Not authorized" if !current_user || current_user.kind != "Kitchen"
   	end
   	
     private

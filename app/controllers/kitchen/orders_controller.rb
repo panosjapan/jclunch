@@ -13,7 +13,7 @@ class Kitchen::OrdersController < KitchenController
             format.html
             format.pdf do
               pdf = OrderPdf.new(@orders, @search, view_context)
-                   send_data pdf.render, filename: "order_#{params[:region_name_cont]}.pdf",
+                   send_data pdf.render, filename: "order_#{@search.date_cont}.pdf",
                                          type: "application/pdf",
                                          disposition: "inline"
           end

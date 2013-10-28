@@ -11,6 +11,7 @@ LunchOrder::Application.routes.draw do
   resources :departments
   resources :orders
   resources :users
+  resources :work_records
   resources :sessions
   resources :password_resets
   root :to => 'sessions#new'
@@ -28,7 +29,28 @@ LunchOrder::Application.routes.draw do
     get "logout" => "sessions#destroy", :as => "logout"
     get "login" => "sessions#new", :as => "login"
     resources :categories
-    resources :users
+    resources :users do
+      collection do
+        get 'time_cards'
+      end
+      member do
+        get 'time_card'
+        post 'download_time_card'
+        get 'edit_password'
+        put 'update_password'
+        put "request_holiday"
+        put "unrequest_holiday"
+      end
+    end
+    resources :work_records do
+      member do
+        post 'approve'
+        post 'suspend'
+      end
+      collection do
+        get 'monthly'
+      end
+    end
     resources :menus do
       member do
         put 'toggle'
