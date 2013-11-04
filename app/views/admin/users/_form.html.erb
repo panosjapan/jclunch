@@ -4,8 +4,7 @@
 
     <%= f.input :name, :label => 'Full Name' %>
 	<%= f.input :email %>
-	<%= f.input :password %>
-		<%= f.input :department_id, :label => 'Department', :as => :select, :collection => 		Department.all.map{|d| ["#{d.name}", d.id]}, :include_blank => false  %>
+	<%= f.input :department_id, :label => 'Department', :as => :select, :collection => 		Department.all.map{|d| ["#{d.name}", d.id]}, :include_blank => false  %>
 	<%= f.input :kind, :input_html => { :id => "select" }, :collection => ['Full-Time Staff', 'Part-Time Staff', 'Kitchen', 'Admin'], :selected => params[0]  %>
 	<div id ="extra" style="display:none;" >
 	<%= f.input :ni_number %>	

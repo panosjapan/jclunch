@@ -1,0 +1,28 @@
+<% if @holiday.errors[:base].size > 0 %>
+    <div id="error_explanation" style="width: 800px;">
+      <ul>
+        <% @holiday.errors[:base].each do |msg| %>
+        <li><%= msg %></li>
+		<% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= simple_form_for @holiday, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Holiday</legend>
+
+
+    <p>Employee: <b><%= current_user.name %></b></p>
+	<%= f.input :holiday, :order => [:month,:year]  %>
+	<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %> 
+	
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', orders_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
+
+
+

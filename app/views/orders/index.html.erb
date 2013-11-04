@@ -14,7 +14,11 @@
       <tr>
         <td><%= order.date %></td>
 		<td><%= order.user_name %></td>
-        <td><%= order.menu_name %></td>
+        <td><% @line_items = LineItem.where('order_id' => order.id)	 
+				@line_items.each do |item|  %>
+				<%= item.menu_name %></br> 
+				<% end %>
+		</td>
         <td><%= order.region_name %></td>
 
         <td>

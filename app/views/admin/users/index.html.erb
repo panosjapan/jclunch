@@ -8,8 +8,8 @@
       <th>Email</th>
  	  <th>Department</th>
 	  <th>Type</th>
+	  <th>Wage</th>
 	  <th>Created at</th>
-      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +20,9 @@
         <td><%= user.email %></td>
         <td><%= user.department_name %></td>
 		<td><%= user.kind %></td>
-		<td><%= user.created_at %></td>
+		<td><%= if user.wage != nil 
+			user.wage.to_money.format 
+			end %></td>
         <td>
           <%= link_to (t "orders.edit"), edit_admin_user_path(user), :class => 'btn btn-mini' %>
           <%= link_to (t "orders.destroy"), admin_user_path(user), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>

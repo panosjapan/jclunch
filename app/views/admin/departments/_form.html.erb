@@ -6,7 +6,8 @@
     <%= f.input :name %>
     <%= f.input :work_start_at, input_html: {class: 'input-mini'} %>
     <%= f.input :minute_step, input_html: {class: 'input-mini'} %>
-
+	<%= f.input :attendance, :label => 'Part-Time Attendance', :as => :select,  :collection => ['No', 'Yes' ], :selected => params[0] %>
+	
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', admin_departments_path, :class => 'btn' %>

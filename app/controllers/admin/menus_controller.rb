@@ -6,7 +6,7 @@ before_filter :authorize_admin
   
   def index
     if params[:term].present?
-      @menus = Menu.order('category_id').where("name like ?", "%#{params[:term]}%")
+      @menus = Menu.order('category_name').where("name like ?", "%#{params[:term]}%")
     else
       @menus = Menu.order('category_id').includes(:category)
     end

@@ -10,6 +10,81 @@ en:
         photo: "Picture"
         total: "Total Menus"
         toggle: "ON/OFF"
+        
+    sessions:
+      new:
+        title: "Log In"
+        logout: "Log Out"
+      create:
+        signed_in: 'Signed in successfully.'
+        invalid: 'Invalid username or password.'
+      destroy:
+        signed_out: 'Signed out successfully.'
+      forgot: "Forgot your password?"
+    users:
+      show:
+        title: "Your Account Detail"
+        address:
+          title: "Address"
+          bill: "Billing"
+          ship: "Shipping"
+          bill_addr: "Billing Address"
+          ship_addr: "Shipping Address"
+        order:
+          history: "Order history"
+          invoice_pdf: "Invoice"
+      new:
+        title: "Sign Up"
+      edit:
+        title: "Edit"
+        submit: "Update"
+    reset_password:
+      new:
+        title: "Reset Password"
+      send: "Send"
+    work_records:
+      index:
+        lunch: "Lunch"
+    user_work_records:
+      create:
+        success: "Good Morning!"
+      update:
+        success: "Updated!"
+      leave:
+        success: "See You!"
+        
+    helpers:
+      actions: Action
+      popup:
+        confirm: 'Are you sure?'
+      select:
+        prompt: Please select
+      submit:
+        create: Create %{model}
+        submit: Save %{model}
+        update: Update %{model}
+      links:
+        download: "Download"
+        confirm: "Are you sure?"
+        list: "List"
+        cancel: "Cancel"
+        edit: "Edit"
+        add: "Add"
+        destroy: "Destroy"
+        show: "Show"
+        new: "New"
+        create: "Create"
+        update: "Update"
+        change: "Change"
+        delete: "Delete"
+        back: "Back"
+        sort: "Sort"
+        search: 'Search'
+        submit: "Submit"
+        attend: "Attend"
+        take_break: "Take A Break"
+        back_to_work: "Back To Work"
+        leave: "Leaving Work"
        
        
     users:

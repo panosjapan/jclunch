@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-  <%= simple_form_for @work_record, :html => { :class => 'form-horizontal', remote: true } do |f| %>
+  <%= simple_form_for [:admin,@work_record], :html => { :class => 'form-horizontal', remote: true } do |f| %>
     <%= f.input :state, collection: ['attended', 'left', 'approved', 'pending'] %>
     <%= f.input :attend_at, input_html: {class: 'input-small'} %>
     <%= f.input :start_at, input_html: {class: 'input-small'}, minute_step: current_user.try(:department).try(:minute_step).to_i %>

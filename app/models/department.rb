@@ -1,5 +1,5 @@
 class Department < ActiveRecord::Base
-  attr_accessible :name, :work_start_at, :minute_step 
+  attr_accessible :name, :work_start_at, :minute_step, :attendance
   
   has_many :users
   

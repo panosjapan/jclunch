@@ -6,7 +6,15 @@
     <%= link_to ">", date: @date.next_month %>    
 	</h2>
   <div style="text-align:center;">
- 
+ 	<% if current_user.holiday_request %>
+      <%= link_to unrequest_holiday_user_path('current'), {class: 'btn btn-info',method: :put} do %>
+        <%= content_tag(:i,'',class: 'icon-check') %> Holiday
+      <% end -%>
+    <% else %>
+      <%= link_to request_holiday_user_path('current'), {class: 'btn btn-info',method: :put} do %>
+        <%= content_tag(:i,'',class: 'icon-check-empty') %> Holiday
+      <% end -%>    
+    <% end -%>
   </div>
 </div>
 <%= %>

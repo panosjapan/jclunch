@@ -1,0 +1,12 @@
+<%= simple_form_for(@line_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+<%= f.input :menu_id, :label => 'Menu', :input_html => { :id => "select-menu", :style => 'width: 300px' }, :as => :select, :collection => 		Menu.scoped.select { |m| m.state == "active" }.map{|m| ["#{m.name} - #{m.price}£", m.id]}, :include_blank => false  %>
+    <%= f.input :order_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

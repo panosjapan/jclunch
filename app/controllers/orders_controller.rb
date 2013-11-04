@@ -5,6 +5,8 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
    @orders = Order.where('user_id' => current_user.id).order('date DESC').page(params[:page]).per(15)
+   @line_items = LineItem.where('user_id' => current_user.id).order('date DESC').page(params[:page]).per(15)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @orders }
@@ -26,7 +28,9 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @order = Order.new
-
+    1.times do
+        line_item = @order.line_items.build
+      end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @order }
@@ -42,7 +46,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
-
+    
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }

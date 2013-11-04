@@ -8,11 +8,16 @@ class Kitchen::OrdersController < KitchenController
     def index
       @search = Order.search(params[:q])
         @orders = @search.result
-       
+        @line_items = Array.new
+       @orders.each do |order|
+         @line_item = LineItem.where('order_id' => order.id)	 
+         @line_items = @line_items + @line_item
+       end
+      # @line_items = @line_item.result
         respond_to do |format|
             format.html
             format.pdf do
-              pdf = OrderPdf.new(@orders, @search, view_context)
+              pdf = OrderPdf.new(@orders, @search, @line_items, view_context)
                    send_data pdf.render, filename: "order_#{@search.date_cont}.pdf",
                                          type: "application/pdf",
                                          disposition: "inline"

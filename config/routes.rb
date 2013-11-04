@@ -1,5 +1,9 @@
 LunchOrder::Application.routes.draw do
 
+  resources :holidays
+
+  resources :line_items
+
   get "password_resets/new"
   
   get "logout" => "sessions#destroy", :as => "logout"
@@ -10,8 +14,24 @@ LunchOrder::Application.routes.draw do
   resources :regions
   resources :departments
   resources :orders
-  resources :users
-  resources :work_records
+  resources :users do
+    collection do
+      get 'time_cards'
+    end
+    member do
+      get 'time_card'
+      post 'download_time_card'
+      get 'edit_password'
+      put 'update_password'
+      put "request_holiday"
+      put "unrequest_holiday"
+    end
+  end
+  resources :work_records do
+  collection do
+    get 'attendance'
+  end
+end
   resources :sessions
   resources :password_resets
   root :to => 'sessions#new'

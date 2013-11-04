@@ -1,0 +1,33 @@
+<div id="login-container">
+	<div id="login-header" style="text-align:center;">
+		<h3><%= @today.strftime("%d %b (%a) %H:%M") %></h3>
+	</div>
+	<div id="login-content" class="clearfix" style='text-align:center;'>
+		<h4><%= current_user.name %></h4>
+		<% if @work_record.new_record? %>
+			<%= simple_form_for @work_record, :html => { :class => '' } do |f| %>
+				<%= f.hidden_field :work_on %>
+			  <%= f.hidden_field :wage %>
+			  <%= f.hidden_field :user_id %>
+				<%= f.hidden_field :department_id %>
+				<%= f.submit t('helpers.links.attend'), class: 'btn btn-primary btn-large' %>
+			<% end %>
+		<% elsif @work_record.attended? %>
+			<div style='text-align:center;'>
+				<%= @work_record.state %>
+			<%= simple_form_for @work_record, :html => { :class => '' } do |f| %>
+			  <%= f.input :lunch_start_at, default: @ls, minute_step: @step, input_html: {class: 'input-mini'} %>
+			  <%= f.input :lunch_end_at, default: @le, minute_step: @step, input_html: {class: 'input-mini'} %>
+				<%= f.submit t('helpers.links.leave'), :class => 'btn btn-primary' %>
+			<% end %>
+			</div>
+		<% else @work_record.left? %>
+			<div class='txt-c'>
+				<%= @work_record.start_at_to_strf %> - <%= @work_record.end_at_to_strf %>
+			</div>
+			<div class='txt-c'>
+				Lunch: <%= @work_record.lunch_hours %>
+			</div>
+		<% end -%>
+	</div>
+</div>

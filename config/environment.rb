@@ -2,6 +2,7 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
+Money.default_currency = Money::Currency.new("GBP")
 LunchOrder::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {

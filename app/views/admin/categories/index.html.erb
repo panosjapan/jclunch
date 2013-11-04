@@ -4,7 +4,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <th>Created at</th>
+      <th>One_Lunch</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -13,7 +13,7 @@
       <tr>
         <td><%= category.id %></td>
         <td><%= link_to category.name, admin_category_path(category) %></td>
-        <td><%= category.created_at %></td>
+        <td><%= category.one_lunch %></td>
         <td>
           <%= link_to (t "orders.edit"), edit_admin_category_path(category), :class => 'btn btn-mini' %>
           <%= link_to (t "orders.destroy"), admin_category_path(category), :method => :delete, :confirm => 'Are you sure?', :style => 'color: white', :class => 'btn btn-mini btn-danger' %>

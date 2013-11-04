@@ -38,7 +38,7 @@
         <div class="nav-collapse">
           <ul class="nav">  
 		
-	<% if current_user && current_user.kind == "Admin" %>
+	<% if current_user && current_user.kind == "Admin" && current_user.department_attendance == "Yes" %>
 		<li> <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
 		        Attendance
 		        <b class="caret"></b>
@@ -47,6 +47,8 @@
 		        <li><%= link_to t('.daily'), admin_work_records_path %></li>
 		        <li><%= link_to t('.monthly'), monthly_admin_work_records_path %></li>
 		    </ul></li>
+		<% end %>
+		<% if current_user && current_user.kind == "Admin" %>
 			  	<li><%= link_to t('.orders'), admin_orders_path %></li>
 				<li><%= link_to t('.users'), admin_users_path %></li>
 				<li><%= link_to t('.menus'), admin_menus_path %></li>
@@ -85,11 +87,10 @@
 	  </div>
 	<% end %>
 
-
+	<div id="myModal" class="modal hide fade"></div>
     <%= yield %>
 </div>
 
-<center>	&copy; <%= Date.today %>  Japan Centre Group Ltd.</center>
 </div><br/><br/>
 </body>
 </html>

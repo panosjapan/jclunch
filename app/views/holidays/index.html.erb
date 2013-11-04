@@ -1,0 +1,24 @@
+<h2>Holidays</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Employee</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @holidays.each do |holiday| %>
+      <tr>
+        <td><%= holiday.holiday.strftime("%b-%Y") %></td>
+		<td><%= holiday.user_name %></td>
+       
+        <td>
+          <%= link_to (t "holidays.edit"), edit_holiday_path(holiday), :class => 'btn btn-mini' %>
+          <%= link_to (t "holidays.destroy"), holiday_path(holiday), :method => :delete, :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to (t "orders.new"), new_holiday_path, :style => 'color: white', :class => 'btn btn-primary' %>

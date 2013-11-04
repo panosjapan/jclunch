@@ -63,6 +63,6 @@ class Admin::WorkRecordsController < AdminController
   
   def monthly
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
-    @users = User.b_dept(current_user.department_id)
+    @users = User.b_dept(current_user.department_id).where("users.kind = ?", "Part-Time Staff") 
   end
 end

@@ -11,19 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131028144703) do
-
-  create_table "assignments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20131104113826) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "one_lunch"
   end
 
   create_table "category_translations", :force => true do |t|
@@ -43,6 +37,21 @@ ActiveRecord::Schema.define(:version => 20131028144703) do
     t.datetime "updated_at",    :null => false
     t.time     "work_start_at"
     t.integer  "minute_step"
+    t.string   "attendance"
+  end
+
+  create_table "holidays", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "holiday"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "menu_id"
+    t.integer  "order_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "menu_translations", :force => true do |t|
@@ -71,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20131028144703) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "menu_id"
     t.integer  "region_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -90,20 +98,12 @@ ActiveRecord::Schema.define(:version => 20131028144703) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "searches", :force => true do |t|
-    t.integer  "region_id"
-    t.date     "min_date"
-    t.date     "max_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
+    t.datetime "created_at",                                                              :null => false
+    t.datetime "updated_at",                                                              :null => false
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20131028144703) do
     t.string   "kind"
     t.decimal  "wage",                   :precision => 8, :scale => 2
     t.string   "ni_number"
+    t.boolean  "holiday_request",                                      :default => false
   end
 
   create_table "work_records", :force => true do |t|

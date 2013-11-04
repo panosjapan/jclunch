@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name, :parent_id
+  attr_accessible :name, :parent_id, :one_lunch
   translates :name
   class Translation
       attr_accessible :locale

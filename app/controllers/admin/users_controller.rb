@@ -86,7 +86,10 @@ before_filter :authorize_admin
     @work_records = WorkRecord.approved.b_user(@user.id).monthly(@date)
     @total_hours = 0
     @total_pay = 0
+    @holidays = Holiday.where('holiday' => date).where('user_id' => @user.id)
+  
     data = CSV.generate do |csv|
+      csv << ["Holiday"] if @holidays.size > 0 
       csv << ["DATE","START TIME","LUNCH","END TIME","TOTAL HOURS","HOURS	RATE x HOURS"]
       @work_records.each do |wr|
         @total_hours += wr.daily_work_time
@@ -96,7 +99,7 @@ before_filter :authorize_admin
       csv << ["","","","",@total_hours,@total_pay]
     end
     if @work_records.present?
-      send_data(data, type: 'text/csv', filename: "Time_Card_#{@user.firstname}_#{@date.to_time.strftime('%Y_%B')}.csv") 
+      send_data(data, type: 'text/csv', filename: "Time_Card_#{@user.name}_#{@date.to_time.strftime('%Y_%B')}.csv") 
     else
       redirect_to :back
     end

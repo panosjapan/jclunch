@@ -17,4 +17,15 @@ class UsersController < ApplicationController
 	  end
 	end
 	
+	def request_holiday
+	  User.where('id' => current_user).update_all(:holiday_request => true)
+#  	current_user.update_attributes(holiday_request: true)
+  	redirect_to :back
+  end
+
+  def unrequest_holiday
+	  User.where('id' => current_user).update_all(:holiday_request => false)
+  	redirect_to :back
+  end
+	
 end

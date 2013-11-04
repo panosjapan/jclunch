@@ -1,7 +1,8 @@
 class OrderPdf < Prawn::Document
-  def initialize(order, search, view)
+  def initialize(order, search, line_item, view)
     super(top_margin: 70)
     @orders = order
+    @line_items = line_item
     @search = search
     @view = view
     date
@@ -13,7 +14,7 @@ end
 
   
   def order_number
-      text "Total Orders: #{@orders.count}", size: 16, style: :bold
+      text "Total Menus: #{@line_items.count}", size: 16, style: :bold
   end
   
   def region
@@ -39,12 +40,12 @@ end
 
       def line_item_rows
        [[ "Menu", "Cannon Street", "Regent", "Sub-Total", "Acton", "Total"]] +
-       @orders.group_by{|x| x.menu_name }.map do |key,orders|
+       @line_items.group_by{|x| x.menu_name }.map do |key,items|
          
-       [key, orders.select{|x| x.region_id == 3}.length,
-         orders.select{|x| x.region_id == 1}.length,
-         orders.select{|x| x.region_id == 3}.length + orders.select{|x| x.region_id == 1}.length,
-         orders.select{|x| x.region_id == 2}.length, orders.length]
+       [key, items.select{|x| x.order.region_id == 3}.length,
+         items.select{|x| x.order.region_id == 1}.length,
+         items.select{|x| x.order.region_id == 3}.length + items.select{|x| x.order.region_id == 1}.length,
+         items.select{|x| x.order.region_id == 2}.length, items.length]
        end
       end
       

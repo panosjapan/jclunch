@@ -22,7 +22,6 @@
       <th><%= sort_link @search, :region_name, "Region" %></th>
       <th><%= sort_link @search, :date, "Date" %></th>
 	  <th>Created at</th>
-      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -30,15 +29,14 @@
       <tr>
         <td><%= order.id %></td>
 		<td><%= order.user_name %></td>
-        <td><%= order.menu_name %></td>
+        <td><% @line_items = LineItem.where('order_id' => order.id)	 
+				@line_items.each do |item|  %>
+				<%= item.menu_name %></br> 
+				<% end %></td>
         <td><%= order.user.try(:department_name) %></td>
         <td><%= order.region_name %></td>
         <td><%= order.date %></td>
         <td><%= order.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_admin_order_path(order), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', admin_order_path(order), :method => :delete, :style => 'color: white', :class => 'btn btn-mini btn-danger' %>
-        </td>
       </tr>
     <% end %>
   </tbody>

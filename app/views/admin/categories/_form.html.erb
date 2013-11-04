@@ -4,6 +4,7 @@
     <legend><%= controller.action_name.capitalize %> Category</legend>
 
     <%= f.input :name %>
+	<%= f.input :one_lunch, :label => 'One_lunch', :as => :select,  :collection => ['No', 'Yes' ], :selected => params[0] %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

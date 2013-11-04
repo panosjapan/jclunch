@@ -2,6 +2,9 @@ class Admin::SessionsController < AdminController
   #skip_before_filter :authorize, :authorize_admin
   def new
     @categories = Category.all
+    if current_user && current_user.kind == "Admin"
+        redirect_to admin_menus_url
+    end
   end
   
   def index

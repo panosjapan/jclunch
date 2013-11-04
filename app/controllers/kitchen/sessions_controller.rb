@@ -14,7 +14,7 @@ class Kitchen::SessionsController < KitchenController
 
   def create
     user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])  && user.type == "Kitchen"
+    if user && user.authenticate(params[:password])  && user.kind == "Kitchen"
       if params[:remember_me]
         cookies.permanent[:auth_token] = user.auth_token  
       else

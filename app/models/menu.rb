@@ -1,11 +1,14 @@
 class Menu < ActiveRecord::Base
    
-  attr_accessible :name, :photo, :price, :category, :category_id, :category_name
+  attr_accessible :name, :line_item, :line_item_id, :second_menu_id, :photo, :price, :category, 
+  :category_id, :category_name, :category_one_lunch
+  has_many :line_items
   translates :name
   class Translation
       attr_accessible :locale
     end
   belongs_to :category
+
   validates_length_of :name, :within => 3..40
   validates_uniqueness_of :name
 	validates_presence_of :name, :price, :category  
@@ -22,6 +25,15 @@ class Menu < ActiveRecord::Base
                       
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 5.megabytes
+  
+  def category_one_lunch
+    category.try(:one_lunch)
+  end
+
+  def category_one_lunch=(one_lunch)
+    self.category = Category.find_or_create_by_one_lunch(one_lunch) if one_lunch.present?
+  end
+  
   def category_name
     category.try(:name)
   end

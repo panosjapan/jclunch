@@ -10,7 +10,7 @@
     </div>
   <% end %>
 
-  <%= simple_form_for @work_record, :html => { :class => 'form-horizontal', remote: true } do |f| %>
+  <%= simple_form_for [:admin,@work_record], :html => { :class => 'form-horizontal', remote: true } do |f| %>
     <%= f.input :user_id, collection: current_user.department.users.map{|x| [x.name,x.id]} %>
     <%= f.input :state, collection: ['attended', 'left', 'approved', 'pending'] %>
     <%= f.input :work_on,input_html: {class: 'input-small'},order: [:day, :month, :year] %>
