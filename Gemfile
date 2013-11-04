@@ -47,7 +47,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use ClearDB(HEROKU ADD-ON)
 gem 'activemerchant', :require => 'active_merchant'
 gem 'rails_12factor', group: :production
-
+gem 'sqlite3', '1.3.8',group: :production
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
