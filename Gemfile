@@ -5,12 +5,8 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :production, :development do
   gem 'mysql2'
-end
-group :test do
-  gem 'sqlite3'
-end
+
 
 group :production do
   gem 'thin'
