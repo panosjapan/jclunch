@@ -75,6 +75,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.3.6)
+    commonjs (0.2.7)
     daemons (1.1.9)
     debugger (1.6.2)
       columnize (>= 0.3.1)
@@ -116,6 +117,12 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.3.0)
       addressable (~> 2.3)
+    less (2.4.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.4.2)
+      actionpack (>= 3.1)
+      less (~> 2.4.0)
+    libv8 (3.16.14.3)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -180,6 +187,7 @@ GEM
       polyamorous (~> 0.6.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    ref (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     ruby-rc4 (0.1.5)
@@ -205,6 +213,9 @@ GEM
       rest-client (>= 1.4.0, < 1.7.0)
       sequel (~> 3.20.0)
       sinatra (~> 1.0.0)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.1)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -243,6 +254,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   kaminari
+  less-rails
   money
   mysql2
   paperclip (~> 3.0)!
@@ -256,6 +268,7 @@ DEPENDENCIES
   simple_form
   state_machine
   taps (~> 0.3.23)
+  therubyracer
   thin
   twitter-bootstrap-rails (>= 2.1.1)
   uglifier (>= 1.0.3)
