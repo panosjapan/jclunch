@@ -5,8 +5,7 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-  gem 'mysql2'
-
+gem 'mysql2'
 
 group :production do
   gem 'thin'
@@ -34,7 +33,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'globalize3'
-gem "taps", "0.3.23"
 gem 'populator'
 gem 'money'
 gem 'prawn'
