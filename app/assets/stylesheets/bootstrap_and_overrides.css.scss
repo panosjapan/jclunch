@@ -7,59 +7,6 @@ $navbarBackgroundHighlight: #380000;
 $navbarText: lightblue;
 $navbarLinkColor: white;
 
-@import "bootstrap";
-
-body { padding-top: 60px; 
-.navbar navbar-fixed-bottom {
-  background-color: #FF00FF; 
-}
-
-.container {
-width: 1200px;
-}
-
-#login {
-
-    display: inline-block;
-}
-
-a.add_fields.btn.btn-mini.btn-info {
-	color: white;
-}
-.icon-check {
-  background-position: -144px -72px;
-}
-
-.icon-star-empty {
-  background-position: -144px 0;
-}
-
-#element1 {display:inline-block;margin-right:10px;  } 
-#element2 {display:inline-block;  }
-}
-
-@import "bootstrap-responsive";
-
-.navbar .brand {
-  color: #FAFFB8;
-}
-.navbar .a:hover {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    background-color: rgb(22, 132, 194);
-}
-
-.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    background-color: black;
-}
-
-.container {
-width: 1200px;
-}
-
-
 
 
 
