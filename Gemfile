@@ -10,6 +10,7 @@ gem 'rails', '3.2.6'
 group :production do
   gem 'thin'
 end
+
 gem 'mysql2'
 
 gem 'ransack'
