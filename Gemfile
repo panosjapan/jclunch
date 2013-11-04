@@ -11,7 +11,8 @@ group :production do
   gem 'thin'
 gem 'mysql2'
 end
-
+gem 'sqlite3', group: [:development, :test]
+gem 'mysql2', group: [:production]
 
 gem 'ransack'
 gem 'kaminari'

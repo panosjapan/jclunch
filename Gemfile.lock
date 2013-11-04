@@ -196,8 +196,9 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.8)
     state_machine (1.2.0)
-    taps (0.3.24)
+    taps (0.3.23)
       rack (>= 1.0.1)
       rest-client (>= 1.4.0, < 1.7.0)
       sequel (~> 3.20.0)
@@ -250,6 +251,7 @@ DEPENDENCIES
   ransack
   sass-rails (~> 3.2.3)
   simple_form
+  sqlite3
   state_machine
   taps (~> 0.3.23)
   thin
