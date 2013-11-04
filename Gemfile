@@ -33,7 +33,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'globalize3'
-gem "taps", "~> 0.3.23"
+gem "taps", "0.3.23"
 gem 'populator'
 gem 'money'
 gem 'prawn'
@@ -47,7 +47,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use ClearDB(HEROKU ADD-ON)
 gem 'activemerchant', :require => 'active_merchant'
 gem 'rails_12factor', group: :production
-gem 'sqlite3', '1.3.8',group: :production
+#gem 'sqlite3', '1.3.8'#,group: :production
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
