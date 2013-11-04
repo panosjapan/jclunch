@@ -255,7 +255,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   simple_form
   state_machine
-  taps (= 0.3.23)
+  taps (~> 0.3.23)
   thin
   twitter-bootstrap-rails (>= 2.1.1)
   uglifier (>= 1.0.3)
