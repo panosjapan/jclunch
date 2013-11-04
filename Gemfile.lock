@@ -86,6 +86,9 @@ GEM
     eventmachine (1.0.3)
     excon (0.25.3)
     execjs (2.0.2)
+    font-awesome-sass-rails (3.0.2.2)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     globalize (3.0.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -235,6 +238,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails (~> 0.2.12)
   coffee-rails (~> 3.2.1)
   debugger
+  font-awesome-sass-rails
   globalize (~> 3.0.0)
   heroku (~> 2.35.0)
   jquery-rails
