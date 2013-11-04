@@ -86,7 +86,7 @@ GEM
     eventmachine (1.0.3)
     excon (0.25.3)
     execjs (2.0.2)
-    globalize3 (0.3.1)
+    globalize (3.0.0)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
@@ -235,7 +235,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails (~> 0.2.12)
   coffee-rails (~> 3.2.1)
   debugger
-  globalize3
+  globalize (~> 3.0.0)
   heroku (~> 2.35.0)
   jquery-rails
   jquery-ui-rails

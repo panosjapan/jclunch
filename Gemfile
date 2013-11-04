@@ -37,7 +37,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-gem 'globalize3'
+gem 'globalize', '~> 3.0.0'
 gem 'populator'
 gem 'money'
 gem 'prawn'
