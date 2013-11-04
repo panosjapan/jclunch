@@ -7,7 +7,6 @@ gem 'rails', '3.2.6'
 
 
 
-gem 'sqlite3', :group => [:development, :test]
 group :production do
   gem 'thin'
 gem 'mysql2'
