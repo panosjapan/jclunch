@@ -1,7 +1,7 @@
 
 	<fieldset>
 		<div id="element1">
- <%= f.input :menu_id, :label => 'Menu', :input_html => { :style => 'width: 300px' }, :as => :select, :collection => 		Menu.scoped.select { |m| m.state == "active" }.map{|m| ["#{m.name} - #{m.price}£", m.id]}, :include_blank => false  %></div>
+ <%= f.input :menu_id, :label => 'Menu', :input_html => { :style => 'width: 300px' }, :as => :select, :collection => 		Menu.scoped.select { |m| m.state == "active" }.sort_by{|m| m.category_name}.map{|m| ["#{m.name} - #{m.price}£  - #{m.category_name}", m.id]}, :include_blank => false  %></div>
 <div id="element2">	<%= f.hidden_field :_destroy %>
 	<%= link_to "Remove Menu", '#', :style => 'color: white', class: "remove_fields btn btn-danger btn-mini" %>
  </div>

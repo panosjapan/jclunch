@@ -1,18 +1,19 @@
 class User < ActiveRecord::Base
   has_secure_password
   
-  attr_accessible :name, :email, :password, :kind, :ni_number, :wage, :holiday_request, :password_confirmation, :admin, 
+  attr_accessible :name, :email, :password, :password_confirmation, :kind, :ni_number, :wage, :holiday_request, :admin, 
   :department, :department_id, :department_name, :department_attendance, :holiday
 
-  validate :wage_for_part
+  #validate :wage_for_part
   
-  validates_presence_of  :email, :name, :wage 
+  validates_presence_of  :email, :name
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
   validates_length_of :name, :within => 3..40
   validates_uniqueness_of :email
-	validates_presence_of  :password, on: :create
- 
   validates_confirmation_of :password
+  validates_presence_of :password, on: :create
+  validates_presence_of :password_confirmation, on: :create
+ 
   before_create { generate_token(:auth_token) }
   
   belongs_to :department
