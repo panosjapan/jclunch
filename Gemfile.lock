@@ -254,6 +254,7 @@ DEPENDENCIES
   ransack
   sass-rails (~> 3.2.3)
   simple_form
+  sqlite3
   state_machine
   taps (= 0.3.23)
   thin
