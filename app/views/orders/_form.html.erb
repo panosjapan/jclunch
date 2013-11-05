@@ -1,7 +1,7 @@
 <% if @order.errors[:base].size > 0 %>
     <div id="error_explanation" style="width: 800px;">
       <ul>
-        <% @order.errors[:base].each do |msg| %>
+	<% @order.errors[:base].each do |msg| %>
         <li><%= msg %></li>
 		<% end %>
       </ul>

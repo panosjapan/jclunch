@@ -3,5 +3,5 @@
     <%= label_tag :email %>
     <%= text_field_tag :email, params[:email] %>
   </div>
-  <div class="actions"><%= submit_tag "Reset Password" %></div>
+ <button class="btn btn-primary" type="submit"><%= (t "Reset Password") %></button>
 <% end %>
