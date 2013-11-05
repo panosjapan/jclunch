@@ -8,6 +8,43 @@ $navbarText: lightblue;
 $navbarLinkColor: white;
 
 
+body { padding-top: 60px; 
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: black;
+}
+
+.navbar .brand {
+  color: #FAFFB8;
+}
+
+#element1 {display:inline-block;margin-right:10px;  } 
+#element2 {display:inline-block;  }
+
+}
+
+.container {
+width: 1200px;
+}
+
+#login {
+    display: inline-block;
+}
+
+a.add_fields.btn.btn-mini.btn-info {
+	color: white;
+}
+
+
+
+
+
+
+
+
+
 
 
 
