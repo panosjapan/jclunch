@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
   validate :not_past_date, :time
   validate :normal_price
   validate :one_item
+  validate :accounts
   validate :no_menu
   validate :exist_order, :on => :create
   
@@ -20,6 +21,16 @@ class Order < ActiveRecord::Base
   def no_menu	  
    if self.line_items.size == 0 
       self.errors.add(:base, "You must choose at least one menu")
+   end
+  end
+  
+  def accounts	  
+   if self.user.department_id == 4 
+      self.line_items.each do |i|
+        if i.menu.category_id == 5
+          self.errors.add(:base, "Accounts Department Staff cannot order Sushi menus")     
+        end
+      end
    end
   end
   

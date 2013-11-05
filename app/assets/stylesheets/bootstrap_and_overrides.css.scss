@@ -1,6 +1,3 @@
-// Set the correct sprite paths
-$iconSpritePath: image-path('glyphicons-halflings.png');
-$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
 $navbarBackground: #663333;
 $navbarBackgroundHighlight: #380000;
@@ -8,9 +5,33 @@ $navbarText: lightblue;
 $navbarLinkColor: white;
 
 
-body { padding-top: 60px; 
+body { padding-top: 60px; }
 
-.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+.navbar .navbar-fixed-top {
+    background-color: #663333;
+}
+
+.navbar-inner {
+    background-color: rgb(74, 20, 20);
+    background-image: linear-gradient(to bottom, rgb(56, 0, 0), rgb(102, 51, 51));
+    background-repeat: repeat-x;
+    border: 1px solid rgb(61, 31, 31);
+}
+
+.navbar .nav > li > a {
+    color: white;
+	text-shadow: 0 0 0 0;
+}
+
+.navbar .divider-vertical {
+    height: 40px;
+    margin: 0px 9px;
+    border-left: 1px solid rgb(102, 51, 51);
+    border-right: 1px solid rgb(56, 0, 0);
+}
+
+
+.navbar .nav > li > a:hover {
     color: rgb(255, 255, 255);
     text-decoration: none;
     background-color: black;
@@ -23,7 +44,7 @@ body { padding-top: 60px;
 #element1 {display:inline-block;margin-right:10px;  } 
 #element2 {display:inline-block;  }
 
-}
+
 
 .container {
 width: 1200px;
