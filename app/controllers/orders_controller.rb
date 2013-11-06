@@ -40,6 +40,12 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+     d = Time.now+14.hour
+    if @order.date <= Date.today || @order.date <= d.to_date
+     
+      flash[:alert] = "You cannot edit a past or next day's order"
+      redirect_to(:back)
+    end
   end
 
   # POST /orders
@@ -62,7 +68,7 @@ class OrdersController < ApplicationController
   # PUT /orders/1.json
   def update
     @order = Order.find(params[:id])
-
+    
     respond_to do |format|
       if @order.update_attributes(params[:order])
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -80,7 +86,7 @@ class OrdersController < ApplicationController
      d = Time.now+14.hour
     @order = Order.find(params[:id])
     if @order.date <= Date.today || @order.date <= d.to_date
-      flash[:alert] = 'You cannot delete a past order'
+      flash[:alert] = "You cannot delete a past or next day's order"
       redirect_to(:back)
     else
         @order.destroy
