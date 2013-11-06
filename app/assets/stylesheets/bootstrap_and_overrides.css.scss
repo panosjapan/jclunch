@@ -1,21 +1,12 @@
 
-$navbarBackground: #663333;
-$navbarBackgroundHighlight: #380000;
-$navbarText: lightblue;
-$navbarLinkColor: white;
-
-
 body { padding-top: 60px; }
 
-.navbar .navbar-fixed-top {
-    background-color: #663333;
-}
 
-.navbar-inner {
-    background-color: rgb(74, 20, 20);
-    background-image: linear-gradient(to bottom, rgb(56, 0, 0), rgb(102, 51, 51));
-    background-repeat: repeat-x;
-    border: 1px solid rgb(61, 31, 31);
+
+.navbar .navbar-inner {
+
+  background-image: linear-gradient(to bottom, lightblue, blue);
+
 }
 
 .navbar .nav > li > a {

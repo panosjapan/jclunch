@@ -29,7 +29,7 @@ gem 'sass-rails',   '~> 3.2.3'
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails','>= 2.1.1'
 gem "bootstrap-wysihtml5-rails", "~> 0.2.12"
-
+gem 'taps', '0.3.23'
 gem 'globalize3'
 gem 'populator'
 gem 'money'
