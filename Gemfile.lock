@@ -201,11 +201,6 @@ GEM
       rest-client (>= 1.4.0, < 1.7.0)
       sequel (~> 3.20.0)
       sinatra (~> 1.0.0)
-    taps (0.3.23)
-      rack (>= 1.0.1)
-      rest-client (>= 1.4.0, < 1.7.0)
-      sequel (~> 3.20.0)
-      sinatra (~> 1.0.0)
     thin (1.6.1)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -255,7 +250,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   simple_form
   state_machine
-  taps (~> 0.3.23)
   thin
   twitter-bootstrap-rails (>= 2.1.1)
   uglifier (>= 1.0.3)
