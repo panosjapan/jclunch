@@ -18,6 +18,7 @@ gem "paperclip", "~> 3.0", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
 
 gem "heroku", '~> 2.35.0'
+gem "taps", '~> 0.3.23'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
