@@ -27,7 +27,7 @@ class Order < ActiveRecord::Base
   def accounts	  
    if self.user.department_id == 10 
       self.line_items.each do |i|
-        if i.menu.category_id == 5
+        if [5, 6, 7, 8, 9, 10].include? i.menu.category_id 
           self.errors.add(:base, "Accounts Department Staff cannot order Sushi menus")     
         end
       end

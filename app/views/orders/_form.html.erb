@@ -9,7 +9,7 @@
   <% end %>
 <%= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Order</legend>
+    <legend><%= t('orders.new_order') %></legend>
 
     <p><%= t('orders.employee') %>: <b><%= current_user.name %></b></p>
 	<div id="login">

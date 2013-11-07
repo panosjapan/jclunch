@@ -66,7 +66,15 @@ jp:
           remove_menu: "メニューを削除"
           employee: "従業員"
           create_order: "オーダーを作成する"
-          
+          location: "場所"
+          status: "ステータス"
+          actions: "アクション"
+          new_order: "新規注文"
+          warning: "警告！"
+          warning_message: "*あなたが丼、カレーや弁当のメニューを組み合わせることはできませんことを心の中に保管してください。他のすべてのケースでは、10ポンドの最大の和に'複数'のメニューを注文することができます。あなたの昼食をお楽しみください:)"
+          price: "価格"
+          picture: "絵"
+          name: "名前"
                     
           
                 
