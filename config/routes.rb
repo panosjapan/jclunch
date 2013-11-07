@@ -78,7 +78,11 @@ end
     end
     resources :regions
     resources :departments
-    resources :orders
+    resources :orders do
+    member do
+      get 'approve'
+    end
+  end
     resources :sessions
     resources :searches
     scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do

@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :menu, :menu_id, :second_menu_id, :menu_name, :menu_price, :line_item, :line_item_id, 
+  attr_accessible :menu, :menu_id, :status, :second_menu_id, :menu_name, :menu_price, :line_item, :line_item_id, 
   :region, :region_id, :region_name, :date, :user, :user_id, :user_name, :line_items_attributes
   validate :not_past_date, :time
   validate :normal_price

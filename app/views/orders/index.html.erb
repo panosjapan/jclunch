@@ -5,7 +5,8 @@
       <th>Date</th>
       <th>Employee</th>
       <th>Menu</th>
-      <th>Region</th>
+      <th>Location</th>
+      <th>Status</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -20,7 +21,7 @@
 				<% end %>
 		</td>
         <td><%= order.region_name %></td>
-
+        <td><%= order.status %></td>
         <td>
           <%= link_to (t "orders.edit"), edit_order_path(order), :class => 'btn btn-mini' %>
           <%= link_to (t "orders.destroy"), order_path(order), :method => :delete, :style => 'color: white', :class => 'btn btn-mini btn-danger' %>

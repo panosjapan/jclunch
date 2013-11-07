@@ -7,7 +7,7 @@ class Kitchen::OrdersController < KitchenController
 
     def index
       @search = Order.search(params[:q])
-        @orders = @search.result
+        @orders = @search.result.where('status' => "approved")
         @line_items = Array.new
        @orders.each do |order|
          @line_item = LineItem.where('order_id' => order.id)	 

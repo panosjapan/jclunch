@@ -4,7 +4,8 @@ before_filter :authorize_admin
   # GET /orders.json
   def index
     @search = Order.search(params[:q])
-      @orders = @search.result
+      @orders = @search.result.joins(:user).where('users.department_id' => current_user.department_id)
+  			
       
       respond_to do |format|
           format.html
@@ -95,4 +96,11 @@ before_filter :authorize_admin
       format.json { head :no_content }
     end
   end
+  
+  def approve
+     @order = Order.find(params[:id])
+     @order.update_attributes(:status => "approved")
+     redirect_to(:back)
+   end
+   
 end

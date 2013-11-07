@@ -11,21 +11,22 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Order</legend>
 
-    <p>Employee: <b><%= current_user.name %></b></p>
+    <p><%= t('orders.employee') %>: <b><%= current_user.name %></b></p>
 	<div id="login">
 	<%= f.simple_fields_for :line_items do |builder| %>
 	    <%= render "line_item_fields", :f => builder %>
 	  <% end %>
-<%= link_to_add_fields "Add Menu", f, :line_items %>
+<%= link_to_add_fields t('orders.add_menu'), f, :line_items %>
 	</div>
-	<%= f.input :region_id, :label => 'Region', :as => :select, :collection => 		Region.all.map{|r| ["#{r.name}", r.id]}, :include_blank => false %>
-	<%= f.input :date, :order => [:day,:month,:year]  %>
+	<%= f.input :region_id, :label => t('orders.region'), :as => :select, :collection => 		Region.all.map{|r| ["#{r.name}", r.id]}, :include_blank => false %>
+	<%= f.input :date, :label => t('orders.date'), :order => [:day,:month,:year]  %>
 	<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %> 
+	<%= f.input :status, :as => :hidden, :input_html => { :value => "pending" } %> 
 	
 
     <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', orders_path, :class => 'btn' %>
+      <%= f.submit t('orders.create_order'), :class => 'btn btn-primary' %>
+      <%= link_to t('orders.cancel'),  orders_path, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

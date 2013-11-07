@@ -58,21 +58,30 @@ jp:
           search_button: "検索"
           search_results: "結果"
           search_placeholder: "型領域..."
+          cancel: "キャンセル"
+          region: "地域"
+          date: "日付"
+          add_menu: "メニューを追加"
+          menu: "メニュー"
+          remove_menu: "メニューを削除"
+          employee: "従業員"
+          create_order: "オーダーを作成する"
           
                     
           
                 
     layouts:
         admin:
-          title: "ランチオーダー管理パネル"
+          title: "管理者パネル"
           orders: "受注"
           users: "ユーザー"
           menus: "メニュー"
           categories: "カテゴリ"
-          regions: "地域"
+          locations: "地域"
           departments: "デパート"
           logout: "ログアウト"
           language: "言語"
+          attendance: "出席"
           
           
         application:    

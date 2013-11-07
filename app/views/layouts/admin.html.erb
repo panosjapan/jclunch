@@ -40,7 +40,7 @@
 		
 	<% if current_user && current_user.kind == "Admin" && current_user.department_attendance == "Yes" %>
 		<li> <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-		        Attendance
+		        <%= t('.attendance') %>
 		        <b class="caret"></b>
 		    </a>
 		    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -53,7 +53,7 @@
 				<li><%= link_to t('.users'), admin_users_path %></li>
 				<li><%= link_to t('.menus'), admin_menus_path %></li>
 				<li><%= link_to t('.categories'), admin_categories_path %></li>			
-				<li><%= link_to t('.regions'), admin_regions_path %></li>
+				<li><%= link_to t('.locations'), admin_regions_path %></li>
 				<li><%= link_to t('.departments'), admin_departments_path %></li>
 	<% end %>
           </ul>

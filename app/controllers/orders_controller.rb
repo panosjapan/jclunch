@@ -90,6 +90,7 @@ class OrdersController < ApplicationController
       redirect_to(:back)
     else
         @order.destroy
+        redirect_to(:back)
     end
     
   end

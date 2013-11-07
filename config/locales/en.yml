@@ -115,6 +115,7 @@ en:
           search_button: "Search"
           search_results: "Results"
           search_placeholder: "Type Region.."
+          create_order: "Create Order"
             
     layouts:
       admin:    
